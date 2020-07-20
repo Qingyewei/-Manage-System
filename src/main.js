@@ -32,6 +32,10 @@ Vue.config.productionTip = false
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
+//全局注册组件tree-table
+import TreeTable from 'vue-table-with-tree-grid'
+Vue.component('tree-table', TreeTable)
+
 import axios from 'axios'
 axios.defaults.baseURL='http://127.0.0.1:8888/api/private/v1/'
 // 在 request 拦截器中，展示进度条 NProgress.start()
