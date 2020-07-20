@@ -21,6 +21,15 @@ module.exports = {
       args[0].isProd = true;
       return args;
     });
+    config.set('externals', {
+      vue: 'Vue',
+      'vue-router': 'VueRouter',
+      axios: 'axios',
+      lodash: '_',
+      echarts: 'echarts',
+      nprogress: 'NProgress',
+      'vue-quill-editor': 'VueQuillEditor'
+    });
     config.resolve.alias // 添加别名
       .set('@', resolve('src'))
       .set('@assets', resolve('src/assets'))

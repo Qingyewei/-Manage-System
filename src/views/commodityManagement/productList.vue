@@ -1,6 +1,7 @@
 <template>
   <div>
-    <el-card>
+    <div v-if="firstStep">
+      <el-card>
       <el-row :gutter="20">
         <el-col :span="8">
           <el-input placeholder="请输入内容" v-model="queryInfo.query" clearable @clear="getGoodsList">
@@ -69,11 +70,23 @@
         background>
       </el-pagination>
     </el-card>
+    </div>
+    <addPage v-else :addTab="addTab"
+      :removeTab="removeTab"
+      ></addPage>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    addTab: {
+      type: Function
+    },
+    removeTab: {
+      type: Function
+    }
+  },
   data () {
     return {
       queryInfo:{
@@ -82,8 +95,12 @@ export default {
         pagesize:10,
       },
       goodsList:[],
-      total:0
+      total:0,
+      firstStep:true,
     }
+  },
+  components:{
+    addPage:() => import ('./addpage')
   },
   created(){
     this.getGoodsList()
@@ -132,8 +149,67 @@ export default {
       this.getGoodsList()
     },
     goAddpage(){
-      this.$router.push('/addpage')
-    }
+      // this.firstStep = false;
+      this.addTab({
+        authName: '添加商品',
+        path: 'addpage'
+      })
+    },
+    // removeTab(targetName) {
+    //   let tabs = this.editableTabs;
+    //   let activeName = this.editableTabsValue;
+    //   console.log(tabs, activeName);
+    //   if (activeName === targetName) {
+    //     tabs.forEach((tab, index) => {
+    //       if (tab.name === targetName) {
+    //         let nextTab = tabs[index + 1] || tabs[index - 1];
+    //         if (nextTab) {
+    //           activeName = nextTab.name;
+    //         }
+    //       }
+    //     });
+    //   }
+    //   if (tabs.length <= 1) {
+    //     this.editableTabsValue = "1";
+    //     this.editableTabs = tabs.filter(tab => tab.name !== targetName);
+    //     return;
+    //   }
+    //   this.editableTabsValue = activeName;
+    //   this.editableTabs = tabs.filter(tab => tab.name !== targetName);
+    // },
+    // // 新建标签页
+    // addTab(data) {
+    //   if (this.editableTabs.length > 0) {
+    //     var flag = false;
+    //     var item;
+    //     for (var i = 0; i < this.editableTabs.length; i++) {
+    //       if (data.authName == this.editableTabs[i].title) {
+    //         flag = true;
+    //         item = this.editableTabs[i];
+    //         break;
+    //       }
+    //     }
+    //     if (flag) {
+    //       this.editableTabsValue = item.name;
+    //     } else {
+    //       let newTabName = ++this.tabIndex + "";
+    //       this.editableTabs.push({
+    //         title: data.authName,
+    //         name: newTabName,
+    //         content: data.path
+    //       });
+    //       this.editableTabsValue = newTabName;
+    //     }
+    //   } else {
+    //     let newTabName = ++this.tabIndex + "";
+    //     this.editableTabs.push({
+    //       title: data.authName,
+    //       name: newTabName,
+    //       content: data.path
+    //     });
+    //     this.editableTabsValue = newTabName;
+    //   }
+    // },
   }
 }
 </script>
