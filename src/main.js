@@ -36,6 +36,15 @@ import 'nprogress/nprogress.css'
 import TreeTable from 'vue-table-with-tree-grid'
 Vue.component('tree-table', TreeTable)
 
+//全局timeline时间线
+import Timeline from './plugins/timeline/index.js'
+import TimelineItem from './plugins/timeline-item/index.js'
+import './plugins/timeline/timeline.css';
+import './plugins/timeline-item/timeline-item.css';
+
+Vue.use(Timeline)
+Vue.use(TimelineItem)
+
 import axios from 'axios'
 axios.defaults.baseURL='http://127.0.0.1:8888/api/private/v1/'
 // 在 request 拦截器中，展示进度条 NProgress.start()

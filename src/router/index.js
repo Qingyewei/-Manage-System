@@ -66,6 +66,11 @@ const routes = [{
         name: 'addpage',
         component: () => import('@views/commodityManagement/addpage')
       },
+      {
+        path:'/orders',
+        name:'orders',
+        copmonent:()=>import('@views/orderManagement/orderList')
+      }
     ]
   },
 
