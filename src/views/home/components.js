@@ -4,6 +4,7 @@ import mineManage from '../mine/components';
 import rights from '../rights/components'
 import goods from '../commodityManagement/components'
 import orders from '../orderManagement/components'
+import reports from '../dataStatistics/components'
 
 
 let components = { };
@@ -14,7 +15,8 @@ components = Object.assign(
     mineManage,
     rights,
     goods,
-    orders
+    orders,
+    reports
 );
 
 export default components;

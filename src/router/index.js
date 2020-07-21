@@ -70,7 +70,12 @@ const routes = [{
         path:'/orders',
         name:'orders',
         copmonent:()=>import('@views/orderManagement/orderList')
-      }
+      },
+      {
+        path:'/reports',
+        name:'reports',
+        copmonent:()=>import('@views/dataStatistics/dataReport')
+      },
     ]
   },
 

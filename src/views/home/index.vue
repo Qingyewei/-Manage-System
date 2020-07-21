@@ -63,6 +63,10 @@
       </el-aside>
 
       <div class="m-right">
+        <!-- 重置标签页按钮 -->
+      <div class="reset-btn">
+        <el-button @click="resetTab">清空标签</el-button>
+      </div>
         <el-tabs v-model="editableTabsValue" @tab-remove="removeTab" @tab-add="addTab" type="card">
           <el-tab-pane :label="titleName" name="1">
             <component
@@ -224,7 +228,30 @@ export default {
     },
     toggleCollapse() {
       this.isCollapse = !this.isCollapse;
-    }
+    },
+    /**
+     * @vuese
+     * 重置清空标签页
+     */
+    resetTab () {
+      this.$confirm("是否确定清空所有标签页？", "消息提示", {
+        distinguishCancelAndClose: true,
+        showClose: false,
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        customClass: "confirmAsk"
+      })
+        .then(() => {
+          this.editableTabs = [];
+          this.editableTabsValue = "1";
+          this.activeIndex = "0";
+          this.isOpeneds = [];
+          this.$router.push({ name: "Home" });
+        })
+        .catch(action => {
+          console.log(action);
+        });
+    },
     // saveNavState(activePath){
     //   window.sessionStorage.setItem('activePath', activePath)
     //   this.activePath = activePath;
@@ -240,6 +267,19 @@ export default {
     width: 60px;
     height: 60px;
   }
+  .reset-btn {
+  position: absolute;
+  right: 0px;
+  z-index: 1;
+  line-height: 40px;
+  width: 90px;
+  text-align: center;
+  .el-button{
+    padding: 0 10px;
+    height: 32px;
+    line-height: 31px;
+  }
+}
 }
 </style>
 
