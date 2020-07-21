@@ -61,6 +61,7 @@
     <!-- 分配权限的模态框 -->
      <!-- 分配权限的对话框 -->
     <el-dialog
+    v-dialogDrag
       title="分配权限"
       :visible.sync="setRightDialogVisible"
       width="50%"

@@ -47,6 +47,7 @@
 
    <!-- 添加分类的模态框 -->
    <el-dialog
+   v-dialogDrag
      title="添加分类"
      :visible.sync="addCateDialogVisible"
      width="50%"

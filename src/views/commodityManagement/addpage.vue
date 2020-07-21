@@ -91,7 +91,7 @@
     </el-card>
 
     <!-- 图片预览 -->
-    <el-dialog title="图片预览" :visible.sync="previewVisible" width="50%">
+    <el-dialog v-dialogDrag title="图片预览" :visible.sync="previewVisible" width="50%">
       <img :src="previewPath" alt class="previewImg" />
     </el-dialog>
   </div>

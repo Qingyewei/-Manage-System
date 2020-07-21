@@ -149,6 +149,7 @@
 
     <!-- 添加参数的对话框 -->
     <el-dialog
+    v-dialogDrag
       :title="'添加' + titleText"
       :visible.sync="addDialogVisible"
       width="50%"
@@ -168,6 +169,7 @@
 
     <!-- 修改参数的对话框 -->
     <el-dialog
+    v-dialogDrag
       :title="'修改' + titleText"
       :visible.sync="editDialogVisible"
       width="50%"

@@ -39,6 +39,7 @@
 
     <!-- 修改地址的模态框 -->
     <el-dialog
+    v-dialogDrag
       title="修改地址"
       :visible.sync="addressVisible"
       width="50%"
@@ -59,6 +60,7 @@
 
     <!-- 展示物流进度的对话框 -->
     <el-dialog
+    v-dialogDrag
       title="物流进度"
       :visible.sync="progressVisible"
       width="50%">

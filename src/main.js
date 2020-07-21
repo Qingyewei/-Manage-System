@@ -22,6 +22,10 @@ import './assets/css/global.less'
 import '../node_modules/ag-grid-community/dist/styles/ag-grid.css'
 import '../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css'
 
+//拖拽
+import '@/public/directives';
+
+
 
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
