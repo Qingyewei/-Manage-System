@@ -25,6 +25,9 @@ import '../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css'
 //拖拽
 import '@/public/directives';
 
+import '@/assets/fonts/iconfont.js'
+
+
 
 
 import ElementUI from 'element-ui';

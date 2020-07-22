@@ -1,0 +1,65 @@
+{
+  "id": "1960334",
+  "name": "VueShop",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5271988",
+      "name": "用户管理",
+      "font_class": "users",
+      "unicode": "e66b",
+      "unicode_decimal": 58987
+    },
+    {
+      "icon_id": "8952924",
+      "name": "java-script",
+      "font_class": "StudyJavaScriptVue",
+      "unicode": "e810",
+      "unicode_decimal": 59408
+    },
+    {
+      "icon_id": "9703595",
+      "name": "商品管理",
+      "font_class": "goods",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "13071703",
+      "name": "订单管理",
+      "font_class": "orders",
+      "unicode": "e662",
+      "unicode_decimal": 58978
+    },
+    {
+      "icon_id": "13633172",
+      "name": "权限管理",
+      "font_class": "rights",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "15836107",
+      "name": "数据统计",
+      "font_class": "reports",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "10183864",
+      "name": "箭头 向右",
+      "font_class": "right",
+      "unicode": "e685",
+      "unicode_decimal": 59013
+    },
+    {
+      "icon_id": "10241356",
+      "name": "箭头 向左",
+      "font_class": "left",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}

@@ -201,7 +201,7 @@ html {
 
   .m-right {
     position: absolute;
-    left: 240px;
+    left: 232px;
     right: 0;
     top: 60px;
     bottom: 0px;
@@ -276,4 +276,287 @@ html {
 .ql-editor {
     min-height: 300px;
   }
- 
+
+.m-left2 {
+    position: absolute;
+    left: 0;
+    top: 104px;
+    bottom: 0;
+    z-index: 999;
+    overflow-y: scroll;
+   background-color: rgb(84, 92, 100);
+    .el-menu--collapse {
+      width: 88px;
+      .el-submenu {
+        .el-submenu__title,
+        .el-menu-item {
+          padding: 0 32px !important;
+          color: #666666;
+          height: 48px;
+          line-height: 48px;
+          position: relative;
+          .icon {
+            width: 24px;
+            height: 24px;
+            overflow: hidden;
+            fill: #b3b3b3;
+          }
+        }
+      }
+  
+      .el-submenu__icon-arrow {
+        display: none;
+      }
+    }
+  
+    .el-menu {
+      border: none;
+  
+      .el-submenu > .el-submenu__title .el-submenu__icon-arrow {
+        transform: rotateZ(-90deg);
+        font-size: 16px;
+        color: #b3b3b3;
+      }
+  
+      .el-submenu.is-opened > .el-submenu__title .el-submenu__icon-arrow {
+        transform: rotateZ(0deg);
+        color: #222222;
+      }
+  
+      .el-submenu__title,
+      .el-menu-item {
+        padding: 0 32px !important;
+        color: #666666;
+        height: 48px;
+        line-height: 48px;
+        .icon {
+          width: 24px;
+          height: 24px;
+          overflow: hidden;
+          fill: #b3b3b3;
+          fill: #b3b3b3;
+        }
+      }
+      .el-menu-item {
+        .el-tooltip {
+          padding: 0 32px !important;
+        }
+      }
+  
+      .m-el-menu-item {
+        padding-left: 80px !important;
+        &.is-active,
+        &.is-focus {
+          position: relative;
+          background: linear-gradient(
+            270deg,
+            rgba(195, 13, 35, 0) 0%,
+            rgba(195, 13, 35, 0.13) 100%
+          );
+          &::before {
+            content: '';
+            position: absolute;
+            top: 21px;
+            left: 64px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #c30d23;
+          }
+          &::after {
+            content: '';
+            position: absolute;
+            top: 13px;
+            left: 0px;
+            width: 4px;
+            height: 24px;
+            border-radius: 0px 100px 100px 0px;
+            background-color: #c30d23;
+          }
+        }
+      }
+      .el-radio-button__inner {
+        border: none;
+      }
+    }
+  }
+
+  .m-left2-fold {
+    width: auto;
+    .el-menu-item {
+      position: relative;
+      &.is-active {
+        background: linear-gradient(
+          270deg,
+          rgba(195, 13, 35, 0) 0%,
+          rgba(195, 13, 35, 0.13) 100%
+        );
+        &::after {
+          content: '';
+          position: absolute;
+          top: 13px;
+          left: 0px;
+          width: 4px;
+          height: 24px;
+          border-radius: 0px 100px 100px 0px;
+          background-color: #c30d23;
+        }
+      }
+    }
+  }
+  
+  .m-left2-unfold {
+    width: 232px;
+  }
+  
+  .m-right-fold {
+    left: 88px;
+  }
+  
+  .m-right-unfold {
+    left: 232px;
+  }
+// 左边菜单栏隐藏滚动条但有滚动效果
+  .m-left2::-webkit-scrollbar {
+  display: none;
+}
+.icon{
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+
+
+  .m-left2-fold {
+    width: auto;
+    .el-menu-item {
+      position: relative;
+      &.is-active {
+        background: linear-gradient(
+          270deg,
+          rgba(195, 13, 35, 0) 0%,
+          rgba(195, 13, 35, 0.13) 100%
+        );
+        &::after {
+          content: '';
+          position: absolute;
+          top: 13px;
+          left: 0px;
+          width: 4px;
+          height: 24px;
+          border-radius: 0px 100px 100px 0px;
+          background-color: #c30d23;
+        }
+      }
+    }
+  }
+
+
+  .el-radio-group-fold {
+    position: fixed;
+    left: 24px;
+    z-index: 1500;
+    width: 40px;
+    bottom: 0;
+    .icon {
+      width: 16px;
+      height: 16px;
+    }
+    .el-radio-group {
+      position: relative;
+      .el-radio-button {
+        position: absolute;
+        bottom: 32px;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        &:hover,
+        &:active {
+          background: #f0f0f0;
+          border-radius: 50%;
+          .el-radio-button__inner {
+            .icon {
+              fill: #222222;
+            }
+          }
+        }
+        .el-radio-button__inner {
+          border: none;
+          padding: 0;
+          background: none;
+          line-height: 0;
+          .icon {
+            fill: #b3b3b3;
+          }
+        }
+      }
+    }
+    .el-radio-button:first-child .el-radio-button__inner {
+      border-left: none;
+      box-shadow: none !important;
+    }
+    .el-radio-group {
+      margin: 0;
+    }
+  }
+  
+  .el-radio-group-unfold {
+    position: absolute;
+    top: 80px;
+    left: 232px;
+    z-index: 150;
+    width: 32px;
+    bottom: 0;
+    &:hover .el-radio-group {
+      display: block;
+    }
+    .icon {
+      width: 16px;
+      height: 16px;
+    }
+    .el-radio-group {
+      height: 100%;
+      position: relative;
+    //   display: none;
+      .el-radio-button {
+        position: absolute;
+        bottom: 24px;
+        width: 32px;
+        height: 40px;
+        // background: rgba(255, 255, 255, 1);
+        box-shadow: 5px 1px 5px -3px rgba(0, 0, 0, 0.2);
+        border-radius: 0px 100px 100px 0px;
+        text-align: center;
+        line-height: 40px;
+        &:hover,
+        &:active {
+          background: #f0f0f0;
+          .el-radio-button__inner {
+            .icon {
+              fill: #222222;
+            }
+          }
+        }
+        .el-radio-button__inner {
+          border: none;
+          padding: 0;
+          background: none;
+          line-height: 0;
+          .icon {
+            fill: #b3b3b3;
+          }
+        }
+      }
+    }
+    .el-radio-button:first-child .el-radio-button__inner {
+      border-left: none;
+      box-shadow: none !important;
+    }
+    .el-radio-group {
+      margin: 0;
+    }
+  }

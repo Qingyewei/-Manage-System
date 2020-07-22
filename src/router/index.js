@@ -76,6 +76,13 @@ const routes = [{
         name:'reports',
         copmonent:()=>import('@views/dataStatistics/dataReport')
       },
+      {
+        path:'/lazyLoading',
+        name:'lazyLoading',
+        copmonent:()=>import('@views/studyJavaScriptVue/lazyLoading')
+      },
+    
+      
     ]
   },
 

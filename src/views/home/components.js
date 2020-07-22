@@ -5,6 +5,7 @@ import rights from '../rights/components'
 import goods from '../commodityManagement/components'
 import orders from '../orderManagement/components'
 import reports from '../dataStatistics/components'
+import lazyLoading from '../studyJavaScriptVue/components'
 
 
 let components = { };
@@ -16,7 +17,8 @@ components = Object.assign(
     rights,
     goods,
     orders,
-    reports
+    reports,
+    lazyLoading
 );
 
 export default components;

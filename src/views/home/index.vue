@@ -1,13 +1,13 @@
 <template>
-  <el-container class="m-home">
+  <div class="m-home">
     <el-header>
       <div class="m-hearImg">
         <!-- <img src="@assets/logo.png" alt /> -->
       </div>
       <el-button type="primary" @click="loginout">退出</el-button>
     </el-header>
-    <el-container>
-      <!-- <div class="m-left">
+
+    <!-- <div class="m-left">
       <ul>
         <li
           v-for="(item,index) in menulist"
@@ -19,80 +19,125 @@
           <span>{{item.authName}}</span>
         </li>
       </ul>
-      </div>-->
-      <el-aside :width="isCollapse ? '60px' :'240px'">
-        <div class="toggle-button" @click="toggleCollapse">|||</div>
-        <el-menu
-          class="el-menu-vertical-demo"
-          background-color="#545c64"
-          text-color="#fff"
-          active-text-color="#ffd04b"
-          :collapse="isCollapse"
-          router
-        >
-          <el-submenu
-            :index="item.id + ''"
-            v-for="item in menulist"
-            :key="item.id"
-            v-if="item.children"
-          >
-            <template slot="title">
-              <i :class="iconsObj[item.id]"></i>
-              <span v-if="!isCollapse">{{item.authName}}</span>
-            </template>
-            <el-menu-item-group>
-              <el-menu-item
-                :index="'/'+subItem.path"
-                v-for="subItem in item.children"
-                :key="subItem.id"
-                @click="goMenu(subItem,item)"
-                :class="{'active':item.authName==titleName}"
-              >
-                <template slot="title">
-                  <i class="el-icon-menu"></i>
-                  <span>{{subItem.authName}}</span>
-                </template>
-              </el-menu-item>
-            </el-menu-item-group>
-          </el-submenu>
-          <el-menu-item :index="index + ''" v-else @click="goMenu(item)">
-            <i :class="iconsObj[item.id]"></i>
-            <span>{{item.authName}}</span>
-          </el-menu-item>
-        </el-menu>
-      </el-aside>
+    </div>-->
+    <!-- 左侧菜单 -->
+    <div class="m-left2" :class="isCollapse ? 'm-left2-fold' : 'm-left2-unfold'">
+      <!-- <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
+        <el-radio-button :label="false">展开</el-radio-button>
+        <el-radio-button :label="true">收起</el-radio-button>
+      </el-radio-group>
+      <div class="toggle-button" @click="toggleCollapse">|||</div>-->
 
-      <div class="m-right">
-        <!-- 重置标签页按钮 -->
+      <!-- <div class="icons" @click="toggleCollapse" style="color:red">
+        <i class="el-icon-s-unfold" v-if="isCollapse"></i>
+        <i class="el-icon-s-fold" v-else></i>
+      </div> -->
+
+      <el-menu
+        class="el-menu-vertical-demo"
+        background-color="#545c64"
+        text-color="#fff"
+        active-text-color="#ffd04b"
+        :collapse="isCollapse"
+        unique-opened
+        :default-openeds="isOpeneds"
+      >
+        <el-submenu
+          :index="item.id + ''"
+          v-for="(item,index) in menulist"
+          :key="item.id"
+          v-if="item.children"
+        >
+          <template slot="title">
+            <svg class="icon">
+              <use :href="'#icon'+ item.path" />
+            </svg>
+            <!-- <svg class="icon">
+              <use xlink:href="#icon-left" />
+            </svg> -->
+            <span v-if="!isCollapse">{{item.authName}}</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item
+              :index="'/'+subItem.path"
+              v-for="subItem in item.children"
+              :key="subItem.id"
+              @click="goMenu(subItem,item)"
+              :class="{'active':item.authName==titleName}"
+            >
+              <template slot="title">
+                <i class="el-icon-menu"></i>
+                <span>{{subItem.authName}}</span>
+              </template>
+            </el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-menu-item :index="index + ''" v-else @click="goMenu(item)">
+          <svg class="icon">
+              <use :href="'#icon'+ item.path" />
+            </svg>
+          <span>{{item.authName}}</span>
+        </el-menu-item>
+      </el-menu>
+    </div>
+
+    <div
+      :class="isCollapse ? 'el-radio-group-fold' : 'el-radio-group-unfold'"
+      @click="toggleCollapse"
+      style="color:red"
+    >
+      <div class="el-radio-group">
+        <div class="el-radio-button" v-if="isCollapse">
+          <div class="el-radio-button__inner">
+            <svg class="icon">
+              <use xlink:href="#iconright" />
+            </svg>
+          </div>
+        </div>
+        <div class="el-radio-button" v-else>
+          <div class="el-radio-button__inner">
+            <svg class="icon">
+              <use xlink:href="#iconleft" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div :class="isCollapse ? 'el-radio-group-fold' : 'el-radio-group-unfold'">
+      <el-radio-group v-model="isCollapse">
+        <el-radio-button :label="false" v-if="isCollapse">展开</el-radio-button>
+        <el-radio-button :label="true" v-else>收起</el-radio-button>
+      </el-radio-group>
+    </div>-->
+    <!-- <div :class="isCollapse ? 'el-radio-group-fold' : 'el-radio-group-unfold'">
+      <el-radio-group v-model="isCollapse">
+        <el-radio-button :label="false" v-show="isCollapse">展开</el-radio-button>
+        <el-radio-button :label="true" v-show="!isCollapse">收起</el-radio-button>
+      </el-radio-group>
+    </div>-->
+
+    <div class="m-right" :class="isCollapse ? 'm-right-fold' : 'm-right-unfold'">
+      <!-- 重置标签页按钮 -->
       <div class="reset-btn">
         <el-button @click="resetTab">清空标签</el-button>
       </div>
-        <el-tabs v-model="editableTabsValue" @tab-remove="removeTab" @tab-add="addTab" type="card">
-          <el-tab-pane :label="titleName" name="1">
-            <component
-            :is="'mine'"
-            :addTab="addTab"
-            :removeTab="removeTab"
-          ></component>
-          </el-tab-pane>
-          <el-tab-pane
-            v-for="item in editableTabs"
-            :label="item.title"
-            :name="item.name"
-            :key="item.name"
-            closable
-          >
+      <el-tabs v-model="editableTabsValue" @tab-remove="removeTab" @tab-add="addTab" type="card">
+        <el-tab-pane :label="titleName" name="1">
+          <component :is="'mine'" :addTab="addTab" :removeTab="removeTab"></component>
+        </el-tab-pane>
+        <el-tab-pane
+          v-for="item in editableTabs"
+          :label="item.title"
+          :name="item.name"
+          :key="item.name"
+          closable
+        >
           <!-- <router-view :addTab="addTab" :removeTab='removeTab' :is=item.content></router-view> -->
-            <component
-            :is="item.content"
-            :addTab="addTab"
-            :removeTab="removeTab"
-          ></component>
-          </el-tab-pane>
-        </el-tabs>
-      </div>
-    </el-container>
-  </el-container>
+          <component :is="item.content" :addTab="addTab" :removeTab="removeTab"></component>
+        </el-tab-pane>
+      </el-tabs>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -103,25 +148,30 @@ export default {
   data() {
     return {
       menulist: [],
+      // Openeds=['...'] 属性内容和下面的 <el-submenu index="..."> 里面的index内容是关联的，两个属性内容是一样的就可以关联了
+      isOpeneds: [],
       isCollapse: false,
-      iconsObj: {
-        "125": "iconfont icon-user",
-        "103": "iconfont icon-tijikongjian",
-        "101": "iconfont icon-shangpin",
-        "102": "iconfont icon-danju",
-        "145": "iconfont icon-baobiao"
-      },
-      activePath: "",
+      
+      // activePath: "",
       editableTabsValue: "1",
       editableTabs: [],
       tabIndex: 1,
-      titleName: "首页"
+      titleName: "首页",
+      studyJavaScriptVueList: [
+        {
+          authName: "Study-JavaScript-Vue",
+          children: null,
+          id: 1,
+          order: 1,
+          path: "StudyJavaScriptVue"
+        }
+      ]
     };
   },
   created() {
     this.getMenuList();
     this.$router.push("/Home");
-    this.activePath = window.sessionStorage.getItem("activePath");
+    // this.activePath = window.sessionStorage.getItem("activePath");
     if (
       this.editableTabs.length == 0 &&
       this.$router.currentRoute.name != "mine"
@@ -191,7 +241,7 @@ export default {
       this.$router.push("/" + data.path);
       console.log("/" + data.path);
       // this.titleName = data.authName;
-      this.addTab(data)
+      this.addTab(data);
     },
     /**
      * @vuese
@@ -224,7 +274,16 @@ export default {
       const { data: res } = await this.$http.get("menus");
       if (res.meta.status !== 200) return this.$message.error(res.meta.msg);
       this.menulist = res.data;
-      console.log(res);
+      this.menulist = [...this.menulist, ...this.studyJavaScriptVueList];
+      // this.menulist.push({
+      //   authName: "JS懒加载",
+      //     children: null,
+      //     id: 1,
+      //     order: 1,
+      //     path: "lazyLoading"
+      // })
+      console.log(res.data);
+      console.log(this.menulist);
     },
     toggleCollapse() {
       this.isCollapse = !this.isCollapse;
@@ -233,7 +292,7 @@ export default {
      * @vuese
      * 重置清空标签页
      */
-    resetTab () {
+    resetTab() {
       this.$confirm("是否确定清空所有标签页？", "消息提示", {
         distinguishCancelAndClose: true,
         showClose: false,
@@ -251,7 +310,7 @@ export default {
         .catch(action => {
           console.log(action);
         });
-    },
+    }
     // saveNavState(activePath){
     //   window.sessionStorage.setItem('activePath', activePath)
     //   this.activePath = activePath;
@@ -268,18 +327,18 @@ export default {
     height: 60px;
   }
   .reset-btn {
-  position: absolute;
-  right: 0px;
-  z-index: 1;
-  line-height: 40px;
-  width: 90px;
-  text-align: center;
-  .el-button{
-    padding: 0 10px;
-    height: 32px;
-    line-height: 31px;
+    position: absolute;
+    right: 0px;
+    z-index: 1;
+    line-height: 40px;
+    width: 90px;
+    text-align: center;
+    .el-button {
+      padding: 0 10px;
+      height: 32px;
+      line-height: 31px;
+    }
   }
-}
 }
 </style>
 
