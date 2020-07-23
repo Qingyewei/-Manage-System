@@ -72,7 +72,7 @@
               :class="{'active':item.authName==titleName}"
             >
               <template slot="title">
-                <i class="el-icon-menu"></i>
+                <!-- <i class="el-icon-menu"></i> -->
                 <span>{{subItem.authName}}</span>
               </template>
             </el-menu-item>
@@ -87,12 +87,11 @@
       </el-menu>
     </div>
 
-    <div
+    <!-- <div
       :class="isCollapse ? 'el-radio-group-fold' : 'el-radio-group-unfold'"
       @click="toggleCollapse"
-      style="color:red"
     >
-      <div class="el-radio-group">
+      <div class="el-radio-group" v-model="isCollapse">
         <div class="el-radio-button" v-if="isCollapse">
           <div class="el-radio-button__inner">
             <svg class="icon">
@@ -108,13 +107,17 @@
           </div>
         </div>
       </div>
-    </div>
-    <!-- <div :class="isCollapse ? 'el-radio-group-fold' : 'el-radio-group-unfold'">
+    </div> -->
+    <div :class="isCollapse ? 'el-radio-group-fold' : 'el-radio-group-unfold'">
       <el-radio-group v-model="isCollapse">
-        <el-radio-button :label="false" v-show="isCollapse">展开</el-radio-button>
-        <el-radio-button :label="true" v-show="!isCollapse">收起</el-radio-button>
+        <el-radio-button :label="false" v-show="isCollapse"><svg class="icon">
+              <use xlink:href="#iconright" />
+            </svg></el-radio-button>
+        <el-radio-button :label="true" v-show="!isCollapse"><svg class="icon">
+              <use xlink:href="#iconleft" />
+            </svg></el-radio-button>
       </el-radio-group>
-    </div>-->
+    </div>
 
     <div class="m-right" :class="isCollapse ? 'm-right-fold' : 'm-right-unfold'">
       <!-- 重置标签页按钮 -->
@@ -281,8 +284,8 @@ export default {
       //     order: 1,
       //     path: "lazyLoading"
       // })
-      console.log(res.data);
-      console.log(this.menulist);
+      // console.log(res.data);
+      // console.log(this.menulist);
     },
     toggleCollapse() {
       this.isCollapse = !this.isCollapse;
