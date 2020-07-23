@@ -61,28 +61,34 @@ const routes = [{
         name: 'categories',
         component: () => import('@views/commodityManagement/classification')
       },
+
+      // data数据中没有这个path，所以路由路径不显示
+      // {
+      //   path: '/addpage',
+      //   name: 'addpage',
+      //   component: () => import('@views/commodityManagement/addpage')
+      // },
       {
-        path: '/addpage',
-        name: 'addpage',
-        component: () => import('@views/commodityManagement/addpage')
+        path: '/orders',
+        name: 'orders',
+        copmonent: () => import('@views/orderManagement/orderList')
       },
       {
-        path:'/orders',
-        name:'orders',
-        copmonent:()=>import('@views/orderManagement/orderList')
+        path: '/reports',
+        name: 'reports',
+        copmonent: () => import('@views/dataStatistics/dataReport')
       },
       {
-        path:'/reports',
-        name:'reports',
-        copmonent:()=>import('@views/dataStatistics/dataReport')
+        path: '/StudyJavaScriptVue',
+        name: 'StudyJavaScriptVue',
+        copmonent: () => import('@views/studyJavaScriptVue'),
+        // children: [{
+        //   path: '/StudyJavaScriptVue/JavaScriptdragAndDrop',
+        //   name: 'StudyJavaScriptVue/JavaScriptdragAndDrop',
+        //   copmonent: () => import('@views/studyJavaScriptVue/JavaScript/JavaScriptdragAndDrop')
+        // }, ]
       },
-      {
-        path:'/lazyLoading',
-        name:'lazyLoading',
-        copmonent:()=>import('@views/studyJavaScriptVue/lazyLoading')
-      },
-    
-      
+
     ]
   },
 

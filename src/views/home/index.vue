@@ -105,16 +105,10 @@
     </div>
     <!-- <div :class="isCollapse ? 'el-radio-group-fold' : 'el-radio-group-unfold'">
       <el-radio-group v-model="isCollapse">
-        <el-radio-button :label="false" v-if="isCollapse">展开</el-radio-button>
-        <el-radio-button :label="true" v-else>收起</el-radio-button>
-      </el-radio-group>
-    </div>-->
-    <!-- <div :class="isCollapse ? 'el-radio-group-fold' : 'el-radio-group-unfold'">
-      <el-radio-group v-model="isCollapse">
         <el-radio-button :label="false" v-show="isCollapse">展开</el-radio-button>
         <el-radio-button :label="true" v-show="!isCollapse">收起</el-radio-button>
       </el-radio-group>
-    </div>-->
+    </div> -->
 
     <div class="m-right" :class="isCollapse ? 'm-right-fold' : 'm-right-unfold'">
       <!-- 重置标签页按钮 -->
@@ -160,7 +154,6 @@ export default {
       studyJavaScriptVueList: [
         {
           authName: "Study-JavaScript-Vue",
-          children: null,
           id: 1,
           order: 1,
           path: "StudyJavaScriptVue"

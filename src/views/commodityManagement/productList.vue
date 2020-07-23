@@ -155,61 +155,6 @@ export default {
         path: 'addpage'
       })
     },
-    // removeTab(targetName) {
-    //   let tabs = this.editableTabs;
-    //   let activeName = this.editableTabsValue;
-    //   console.log(tabs, activeName);
-    //   if (activeName === targetName) {
-    //     tabs.forEach((tab, index) => {
-    //       if (tab.name === targetName) {
-    //         let nextTab = tabs[index + 1] || tabs[index - 1];
-    //         if (nextTab) {
-    //           activeName = nextTab.name;
-    //         }
-    //       }
-    //     });
-    //   }
-    //   if (tabs.length <= 1) {
-    //     this.editableTabsValue = "1";
-    //     this.editableTabs = tabs.filter(tab => tab.name !== targetName);
-    //     return;
-    //   }
-    //   this.editableTabsValue = activeName;
-    //   this.editableTabs = tabs.filter(tab => tab.name !== targetName);
-    // },
-    // // 新建标签页
-    // addTab(data) {
-    //   if (this.editableTabs.length > 0) {
-    //     var flag = false;
-    //     var item;
-    //     for (var i = 0; i < this.editableTabs.length; i++) {
-    //       if (data.authName == this.editableTabs[i].title) {
-    //         flag = true;
-    //         item = this.editableTabs[i];
-    //         break;
-    //       }
-    //     }
-    //     if (flag) {
-    //       this.editableTabsValue = item.name;
-    //     } else {
-    //       let newTabName = ++this.tabIndex + "";
-    //       this.editableTabs.push({
-    //         title: data.authName,
-    //         name: newTabName,
-    //         content: data.path
-    //       });
-    //       this.editableTabsValue = newTabName;
-    //     }
-    //   } else {
-    //     let newTabName = ++this.tabIndex + "";
-    //     this.editableTabs.push({
-    //       title: data.authName,
-    //       name: newTabName,
-    //       content: data.path
-    //     });
-    //     this.editableTabsValue = newTabName;
-    //   }
-    // },
   }
 }
 </script>
