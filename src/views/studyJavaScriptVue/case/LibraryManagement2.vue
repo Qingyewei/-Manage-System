@@ -1,5 +1,5 @@
 <template>
-  <div class="LibraryManagement2">
+  <div class="LibraryManagement2 m-window">
     <div class="grid">
       <div>
         <h1>图书管理</h1>
@@ -95,6 +95,14 @@ Vue.filter("format", function (value, arg) {
 });
 
 export default {
+  props: {
+    addTab: {
+      type: Function
+    },
+    removeTab: {
+      type: Function
+    }
+  },
   data() {
     return {
       flag: false,

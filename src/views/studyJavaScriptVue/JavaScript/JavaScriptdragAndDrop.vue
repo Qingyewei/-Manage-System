@@ -1,5 +1,5 @@
 <template>
-  <div class="edit_container">
+  <div class="edit_container m-window">
     <!-- 新增时输入 -->
     <quill-editor 
       v-model="content" 
@@ -20,6 +20,14 @@ import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.snow.css';
 import 'quill/dist/quill.bubble.css';
 export default {
+  props: {
+    addTab: {
+      type: Function
+    },
+    removeTab: {
+      type: Function
+    }
+  },
   components: {
     quillEditor
   },

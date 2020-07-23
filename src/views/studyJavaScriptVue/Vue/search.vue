@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="m-window">
     <div class="search">
       <form id="main" v-cloak>
         <div class="bar">
@@ -25,6 +25,14 @@
 
 <script>
 export default {
+  props: {
+    addTab: {
+      type: Function
+    },
+    removeTab: {
+      type: Function
+    }
+  },
   data() {
     return {
       searchString: "",

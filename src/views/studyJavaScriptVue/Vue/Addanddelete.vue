@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="m-window">
     <div style="padding:20px;">
       <div class="panel panel-primary">
         <div class="panel-heading">用户管理</div>
@@ -56,6 +56,14 @@
 
 <script>
 export default {
+  props: {
+    addTab: {
+      type: Function
+    },
+    removeTab: {
+      type: Function
+    }
+  },
   data() {
     return {
       rows: [

@@ -1,5 +1,5 @@
 <template>
-  <div class="my-swiper">
+  <div class="my-swiper m-window">
     <swiper>
       <swiper-item v-for="(item,index) in banners" :key="index">
         <a>
@@ -232,6 +232,14 @@ Vue.component("SwiperItem", {
                         </div>`,
 });
 export default {
+  props: {
+    addTab: {
+      type: Function
+    },
+    removeTab: {
+      type: Function
+    }
+  },
   data() {
     return {
       banners: [

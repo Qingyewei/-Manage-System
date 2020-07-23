@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="m-window">
     <!-- 卡片视图区域 -->
     <el-card>
       <!-- 警告区域 -->
@@ -191,6 +191,14 @@
 
 <script>
 export default {
+  props: {
+    addTab: {
+      type: Function
+    },
+    removeTab: {
+      type: Function
+    }
+  },
   data() {
     return {
       // 商品分类列表
@@ -438,7 +446,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .cat_opt {
   margin: 15px 0;
 }

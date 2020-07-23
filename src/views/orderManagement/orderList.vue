@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="m-window">
     <el-card>
       <el-row :gutter="10">
         <el-col :span="8">
@@ -79,6 +79,14 @@
 <script>
 import cityData from './citydata.js'
 export default {
+  props: {
+    addTab: {
+      type: Function
+    },
+    removeTab: {
+      type: Function
+    }
+  },
   data() {
     return {
       queryInfo: {

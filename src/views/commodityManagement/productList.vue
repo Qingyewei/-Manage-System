@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="m-window">
     <div v-if="firstStep">
       <el-card>
       <el-row :gutter="20">

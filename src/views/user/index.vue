@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="m-window">
     <el-card>
       <el-row :gutter="20">
         <el-col :span="8">
@@ -124,6 +124,14 @@
 
 <script>
 export default {
+  props: {
+    addTab: {
+      type: Function
+    },
+    removeTab: {
+      type: Function
+    }
+  },
   data() {
     //验证邮箱的规则
     var checkEmail = (rule, value, cb) => {

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="m-window">
 
     <!-- 卡片视图 -->
     <el-card>
@@ -101,6 +101,14 @@
 import _ from 'lodash'
 
 export default {
+  props: {
+    addTab: {
+      type: Function
+    },
+    removeTab: {
+      type: Function
+    }
+  },
   data() {
     return {
       activeIndex: '0',

@@ -24,29 +24,29 @@ p,
 blockquote,
 th,
 td {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background: #fff;
-    color: #555;
-    font-size: 14px;
-    font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
-    -webkit-user-select: none;
-    user-select: none;
+  background: #fff;
+  color: #555;
+  font-size: 14px;
+  font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 html,
 body {
-    height: 100%;
-    overflow: hidden;
+  height: 100%;
+  overflow: hidden;
 }
 
 td,
 th,
 caption {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 h1,
@@ -55,8 +55,8 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: normal;
-    font-size: 100%;
+  font-weight: normal;
+  font-size: 100%;
 }
 
 address,
@@ -68,496 +68,493 @@ em,
 strong,
 th,
 var {
-    font-style: normal;
-    font-weight: normal;
+  font-style: normal;
+  font-weight: normal;
 }
 
-html,body,#app{height: 100%;margin: 0;padding: 0;}
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 a {
-    color: #555;
-    text-decoration: none;
+  color: #555;
+  text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 img {
-    border: none;
-    width: 100%;
-    height: 100%;
+  border: none;
+  width: 100%;
+  height: 100%;
 }
 
 ol,
 ul,
 li {
-    list-style: none;
+  list-style: none;
 }
 
 input,
 textarea,
 select,
 button {
-    font: 14px;
-    font-family: "Microsoft YaHei", Helvetica, Arial, sans-serif;
+  font: 14px;
+  font-family: "Microsoft YaHei", Helvetica, Arial, sans-serif;
 }
 
 table {
-    border-collapse: collapse;
+  border-collapse: collapse;
 }
 
 html {
-    overflow-y: auto;
+  overflow-y: auto;
 }
 
 .clearfix:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
 }
 
 .clearfix {
-    *zoom: 1;
-}
-
-.el-container{
-    height: 100%;
+  *zoom: 1;
 }
 
 
-.el-header{
-    background-color: #B3C0D1;
-    color: #333;
-    align-items: center;
-    display: flex;
-  justify-content: space-between;
+.top-logout {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: 88px;
+  background: rgba(34, 34, 34, 1);
+  justify-content: center;
+  cursor: pointer;
+  .top-icon {
+    fill: #ffffff;
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+    cursor: pointer;
   }
-  
-  .el-aside {
-    background-color: #D3DCE6;
-    color: #333;
-    .toggle-button{
-        background-color: #4a5064;
-        font-size: 10px;
-        line-height: 24px;
-        color: #fff;
-        text-align: center;
-        letter-spacing: 0.2em;
-        cursor: pointer;
-    }
-    .el-menu{
-        border: none;
-    }
-  }
-  
-  .el-main {
-    background-color: #E9EEF3;
-    color: #333;
-    text-align: center;
-    line-height: 160px;
-  }
+}
 
-  .m-left {
-    position: absolute;
-    width: 240px;
-    left: 0;
-    top: 60px;
-    bottom: 0;
-    border-right: 1px solid #ecf0f0;
-    background-color:#545c64;
-    color:#fff;
-    overflow-y: auto;
-    transition-duration: 0.3s;
+
+.m-right {
+  position: absolute;
+  left: 232px;
+  right: 0;
+  top: 80px;
+  bottom: 0px;
+  overflow-y: auto;
+  background-color: #eee;
+  transition-duration: 0.3s;
+
+  .m-module {
+    overflow: hidden;
+
+    .m-title {
+      font-size: 12px;
+      padding-left: 10px;
+      color: #666;
+    }
+
     ul {
-        li {
-            width: 152px;
-            height: 50px;
-            line-height: 50px;
-            padding-left: 15px;
-            cursor: pointer;
-            .iconfont {
-                float: left;
-                font-size: 14px;
-                color: #fff;
-                padding-right: 10px;
-            }
-            span {
-                float: left;
-                font-size: 13px;
-                color: #fff;
-            }
+      li {
+        float: left;
+        width: 120px;
+        height: 120px;
+        text-align: center;
+        border: 1px solid #ecf0f0;
+        margin: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+
+        .iconfont {
+          display: block;
+          font-size: 42px;
+          height: 42px;
+          line-height: 42px;
+          width: 42px;
+          margin: 0 auto;
+          margin-top: 24px;
+          margin-bottom: 20px;
         }
-        li:hover {
-            background-color: #ffd04b;
+
+        span {
+          display: block;
+          font-size: 14px;
+          color: #333;
         }
-        .active {
-            background-color: #ffd04b;
+      }
+
+      li:hover {
+        border: 1px solid #4BB4FF;
+        box-shadow: 0px 0px 6px 0px rgba(75, 180, 255, 0.79);
+      }
+
+      .m-completed {
+        span {
+          color: #0070c0;
         }
+      }
     }
+  }
+
+  .m-module+.m-module {
+    margin-top: 10px;
+  }
 }
 
-  .m-right {
-    position: absolute;
-    left: 232px;
-    right: 0;
-    top: 60px;
-    bottom: 0px;
-    overflow-y: auto;
-    background-color: #fff;
-    transition-duration: 0.3s;
-    .m-module {
-        overflow: hidden;
-        .m-title {
-            font-size: 12px;
-            padding-left: 10px;
-            color: #666;
-        }
-        ul {
-            li {
-                float: left;
-                width: 120px;
-                height: 120px;
-                text-align: center;
-                border: 1px solid #ecf0f0;
-                margin: 10px;
-                border-radius: 4px;
-                cursor: pointer;
-                .iconfont {
-                    display: block;
-                    font-size: 42px;
-                    height: 42px;
-                    line-height: 42px;
-                    width: 42px;
-                    margin: 0 auto;
-                    margin-top: 24px;
-                    margin-bottom: 20px;
-                }
-                span {
-                    display: block;
-                    font-size: 14px;
-                    color: #333;
-                }
-            }
-            li:hover {
-                border: 1px solid #4BB4FF;
-                box-shadow: 0px 0px 6px 0px rgba(75,180,255,0.79);
-            }
-            .m-completed {
-                span {
-                    color: #0070c0;
-                }
-            }
-        }
-    }
-    .m-module+.m-module {
-        margin-top: 10px;
-    }
+.el-menu-item-group__title {
+  padding: 0 0 0 40px !important;
 }
 
-.el-menu-item-group__title{
-    padding: 0 0 0 40px !important;
+.el-tag {
+  margin: 7px;
 }
 
-.el-tag{
-    margin: 7px;
-}
-.bdtop,.bdbottom{
-    border-bottom: 1px solid #eee;
+.bdtop,
+.bdbottom {
+  border-bottom: 1px solid #eee;
 }
 
-.vcenter{
-    display: flex;
-    align-items: center;
+.vcenter {
+  display: flex;
+  align-items: center;
 }
 
 .ql-editor {
-    min-height: 300px;
-  }
+  min-height: 300px;
+}
 
 .m-left2 {
-    position: absolute;
-    left: 0;
-    top: 104px;
-    bottom: 0;
-    z-index: 999;
-    overflow-y: scroll;
-   background-color: rgb(84, 92, 100);
-    .el-menu--collapse {
-      width: 88px;
-      .el-submenu {
-        .el-submenu__title,
-        .el-menu-item {
-          padding: 0 32px !important;
-          color: #666666;
-          height: 48px;
-          line-height: 48px;
-          position: relative;
-          .icon {
-            width: 24px;
-            height: 24px;
-            overflow: hidden;
-            fill: #b3b3b3;
-          }
-        }
-      }
-  
-      .el-submenu__icon-arrow {
-        display: none;
-      }
-    }
-  
-    .el-menu {
-      border: none;
-  
-      .el-submenu > .el-submenu__title .el-submenu__icon-arrow {
-        transform: rotateZ(-90deg);
-        font-size: 16px;
-        color: #b3b3b3;
-      }
-  
-      .el-submenu.is-opened > .el-submenu__title .el-submenu__icon-arrow {
-        transform: rotateZ(0deg);
-        color: #222222;
-      }
-  
+  position: absolute;
+  left: 0;
+  top: 104px;
+  bottom: 0;
+  z-index: 999;
+  overflow-y: scroll;
+  .el-menu--collapse {
+    width: 88px;
+
+    .el-submenu {
+
       .el-submenu__title,
       .el-menu-item {
         padding: 0 32px !important;
         color: #666666;
         height: 48px;
         line-height: 48px;
+        position: relative;
+
         .icon {
           width: 24px;
           height: 24px;
           overflow: hidden;
           fill: #b3b3b3;
+        }
+      }
+    }
+
+    .el-submenu__icon-arrow {
+      display: none;
+    }
+  }
+
+  .el-menu {
+    border: none;
+
+    .el-submenu>.el-submenu__title .el-submenu__icon-arrow {
+      transform: rotateZ(-90deg);
+      font-size: 16px;
+      color: #b3b3b3;
+    }
+
+    .el-submenu.is-opened>.el-submenu__title .el-submenu__icon-arrow {
+      transform: rotateZ(0deg);
+      color: #222222;
+    }
+
+    .el-submenu__title,
+    .el-menu-item {
+      padding: 0 32px !important;
+      color: #666666;
+      height: 48px;
+      line-height: 48px;
+
+      .icon {
+        width: 24px;
+        height: 24px;
+        overflow: hidden;
+        fill: #b3b3b3;
+        fill: #b3b3b3;
+      }
+    }
+
+    .el-menu-item {
+      .el-tooltip {
+        padding: 0 32px !important;
+      }
+    }
+
+    .m-el-menu-item {
+      padding-left: 80px !important;
+
+      &.is-active,
+      &.is-focus {
+        position: relative;
+        background: linear-gradient(270deg,
+            rgba(195, 13, 35, 0) 0%,
+            rgba(195, 13, 35, 0.13) 100%);
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 21px;
+          left: 64px;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background-color: #c30d23;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 13px;
+          left: 0px;
+          width: 4px;
+          height: 24px;
+          border-radius: 0px 100px 100px 0px;
+          background-color: #c30d23;
+        }
+      }
+    }
+
+    .el-radio-button__inner {
+      border: none;
+    }
+  }
+}
+
+.m-left2-fold {
+  width: auto;
+
+  .el-menu-item {
+    position: relative;
+
+    &.is-active {
+      background: linear-gradient(270deg,
+          rgba(195, 13, 35, 0) 0%,
+          rgba(195, 13, 35, 0.13) 100%);
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 13px;
+        left: 0px;
+        width: 4px;
+        height: 24px;
+        border-radius: 0px 100px 100px 0px;
+        background-color: #c30d23;
+      }
+    }
+  }
+}
+
+.m-left2-unfold {
+  width: 232px;
+}
+
+.m-right-fold {
+  left: 88px;
+}
+
+.m-right-unfold {
+  left: 232px;
+}
+
+// 左边菜单栏隐藏滚动条但有滚动效果
+.m-left2::-webkit-scrollbar {
+  display: none;
+}
+
+.reset-btn {
+  position: absolute;
+  right: 0px;
+  z-index: 1;
+  line-height: 40px;
+  width: 90px;
+  text-align: center;
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+
+
+.m-left2-fold {
+  width: auto;
+
+  .el-menu-item {
+    position: relative;
+
+    &.is-active {
+      background: linear-gradient(270deg,
+          rgba(195, 13, 35, 0) 0%,
+          rgba(195, 13, 35, 0.13) 100%);
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 13px;
+        left: 0px;
+        width: 4px;
+        height: 24px;
+        border-radius: 0px 100px 100px 0px;
+        background-color: #c30d23;
+      }
+    }
+  }
+}
+
+
+.el-radio-group-fold {
+  position: fixed;
+  left: 24px;
+  z-index: 1500;
+  width: 40px;
+  bottom: 0;
+
+  .icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .el-radio-group {
+    position: relative;
+
+    .el-radio-button {
+      position: absolute;
+      bottom: 32px;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+
+      &:hover,
+      &:active {
+        background: #f0f0f0;
+        border-radius: 50%;
+
+        .el-radio-button__inner {
+          .icon {
+            fill: #222222;
+          }
+        }
+      }
+
+      .el-radio-button__inner {
+        border: none;
+        padding: 0;
+        background: none;
+        line-height: 0;
+        color: red;
+
+        .icon {
           fill: #b3b3b3;
         }
       }
-      .el-menu-item {
-        .el-tooltip {
-          padding: 0 32px !important;
+    }
+  }
+
+  .el-radio-button:first-child .el-radio-button__inner {
+    border-left: none;
+    box-shadow: none !important;
+  }
+
+  .el-radio-group {
+    margin: 0;
+  }
+}
+
+.el-radio-group-unfold {
+  position: absolute;
+  top: 80px;
+  left: 232px;
+  z-index: 150;
+  width: 32px;
+  bottom: 0;
+
+  &:hover .el-radio-group {
+    display: block;
+  }
+
+  .icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .el-radio-group {
+    height: 100%;
+    position: relative;
+
+      display: none;
+    .el-radio-button {
+      position: absolute;
+      bottom: 24px;
+      width: 32px;
+      height: 40px;
+      // background: rgba(255, 255, 255, 1);
+      box-shadow: 5px 1px 5px -3px rgba(0, 0, 0, 0.2);
+      border-radius: 0px 100px 100px 0px;
+      text-align: center;
+      line-height: 40px;
+
+      &:hover,
+      &:active {
+        background: #f0f0f0;
+
+        .el-radio-button__inner {
+          .icon {
+            fill: #222222;
+          }
         }
       }
-  
-      .m-el-menu-item {
-        padding-left: 80px !important;
-        &.is-active,
-        &.is-focus {
-          position: relative;
-          background: linear-gradient(
-            270deg,
-            rgba(195, 13, 35, 0) 0%,
-            rgba(195, 13, 35, 0.13) 100%
-          );
-          &::before {
-            content: '';
-            position: absolute;
-            top: 21px;
-            left: 64px;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: #c30d23;
-          }
-          &::after {
-            content: '';
-            position: absolute;
-            top: 13px;
-            left: 0px;
-            width: 4px;
-            height: 24px;
-            border-radius: 0px 100px 100px 0px;
-            background-color: #c30d23;
-          }
-        }
-      }
+
       .el-radio-button__inner {
         border: none;
-      }
-    }
-  }
+        padding: 0;
+        background: none;
+        line-height: 0;
 
-  .m-left2-fold {
-    width: auto;
-    .el-menu-item {
-      position: relative;
-      &.is-active {
-        background: linear-gradient(
-          270deg,
-          rgba(195, 13, 35, 0) 0%,
-          rgba(195, 13, 35, 0.13) 100%
-        );
-        &::after {
-          content: '';
-          position: absolute;
-          top: 13px;
-          left: 0px;
-          width: 4px;
-          height: 24px;
-          border-radius: 0px 100px 100px 0px;
-          background-color: #c30d23;
+        .icon {
+          fill: #b3b3b3;
         }
       }
     }
   }
-  
-  .m-left2-unfold {
-    width: 232px;
+
+  .el-radio-button:first-child .el-radio-button__inner {
+    border-left: none;
+    box-shadow: none !important;
   }
-  
-  .m-right-fold {
-    left: 88px;
+
+  .el-radio-group {
+    margin: 0;
   }
-  
-  .m-right-unfold {
-    left: 232px;
-  }
-// 左边菜单栏隐藏滚动条但有滚动效果
-  .m-left2::-webkit-scrollbar {
-  display: none;
 }
-.icon{
-    width: 1em;
-    height: 1em;
-    vertical-align: -0.15em;
-    fill: currentColor;
-    overflow: hidden;
-}
-
-
-
-  .m-left2-fold {
-    width: auto;
-    .el-menu-item {
-      position: relative;
-      &.is-active {
-        background: linear-gradient(
-          270deg,
-          rgba(195, 13, 35, 0) 0%,
-          rgba(195, 13, 35, 0.13) 100%
-        );
-        &::after {
-          content: '';
-          position: absolute;
-          top: 13px;
-          left: 0px;
-          width: 4px;
-          height: 24px;
-          border-radius: 0px 100px 100px 0px;
-          background-color: #c30d23;
-        }
-      }
-    }
-  }
-
-
-  .el-radio-group-fold {
-    position: fixed;
-    left: 24px;
-    z-index: 1500;
-    width: 40px;
-    bottom: 0;
-    .icon {
-      width: 16px;
-      height: 16px;
-    }
-    .el-radio-group {
-      position: relative;
-      .el-radio-button {
-        position: absolute;
-        bottom: 32px;
-        width: 40px;
-        height: 40px;
-        text-align: center;
-        line-height: 40px;
-        &:hover,
-        &:active {
-          background: #f0f0f0;
-          border-radius: 50%;
-          .el-radio-button__inner {
-            .icon {
-              fill: #222222;
-            }
-          }
-        }
-        .el-radio-button__inner {
-          border: none;
-          padding: 0;
-          background: none;
-          line-height: 0;
-          color: red;
-          .icon {
-            fill: #b3b3b3;
-          }
-        }
-      }
-    }
-    .el-radio-button:first-child .el-radio-button__inner {
-      border-left: none;
-      box-shadow: none !important;
-    }
-    .el-radio-group {
-      margin: 0;
-    }
-  }
-  
-  .el-radio-group-unfold {
-    position: absolute;
-    top: 80px;
-    left: 232px;
-    z-index: 150;
-    width: 32px;
-    bottom: 0;
-    &:hover .el-radio-group {
-      display: block;
-    }
-    .icon {
-      width: 16px;
-      height: 16px;
-    }
-    .el-radio-group {
-      height: 100%;
-      position: relative;
-    //   display: none;
-      .el-radio-button {
-        position: absolute;
-        bottom: 24px;
-        width: 32px;
-        height: 40px;
-        // background: rgba(255, 255, 255, 1);
-        box-shadow: 5px 1px 5px -3px rgba(0, 0, 0, 0.2);
-        border-radius: 0px 100px 100px 0px;
-        text-align: center;
-        line-height: 40px;
-        &:hover,
-        &:active {
-          background: #f0f0f0;
-          .el-radio-button__inner {
-            .icon {
-              fill: #222222;
-            }
-          }
-        }
-        .el-radio-button__inner {
-          border: none;
-          padding: 0;
-          background: none;
-          line-height: 0;
-          .icon {
-            fill: #b3b3b3;
-          }
-        }
-      }
-    }
-    .el-radio-button:first-child .el-radio-button__inner {
-      border-left: none;
-      box-shadow: none !important;
-    }
-    .el-radio-group {
-      margin: 0;
-    }
-  }

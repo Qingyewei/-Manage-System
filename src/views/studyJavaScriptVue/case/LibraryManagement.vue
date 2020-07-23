@@ -1,5 +1,5 @@
 <template>
-  <div class="LibraryManagement">
+  <div class="LibraryManagement m-window">
       <div>
         <div v-if="books.length">
             <table >
@@ -38,6 +38,14 @@
 
 <script>
 export default {
+    props: {
+    addTab: {
+      type: Function
+    },
+    removeTab: {
+      type: Function
+    }
+  },
   data () {
     return {
       books:[

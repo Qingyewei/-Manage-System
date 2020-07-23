@@ -25,8 +25,11 @@ export default {
   name: "StudyJavaScriptVue",
   props: {
     addTab: {
-      type: Function,
+      type: Function
     },
+    removeTab: {
+      type: Function
+    }
   },
   data() {
     return {

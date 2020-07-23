@@ -17,6 +17,7 @@ Vue.use(VueQuillEditor)
 import '@assets/fonts/iconfont.css'
 
 import './assets/css/global.less'
+import './assets/css/cover.less'
 
 //导入ag-grid
 import '../node_modules/ag-grid-community/dist/styles/ag-grid.css'

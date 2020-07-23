@@ -1,5 +1,5 @@
 <template>
-  <div class="m-swiper">
+  <div class="m-swiper m-window">
     <div class="imgItems" @mouseover="mouseOver" @mouseout="mouseOut">
       <img src="@/assets/img/111.jpg" alt="" class="img indexZ">
       <img src="@/assets/img/222.jpg" alt="" class="img">
@@ -18,6 +18,14 @@
 
 <script>
 export default {
+  props: {
+    addTab: {
+      type: Function
+    },
+    removeTab: {
+      type: Function
+    }
+  },
   data () {
     return {
       imgCount:0, //图片个数

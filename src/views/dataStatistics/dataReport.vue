@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="m-window">
       <el-card>
           <div id="main" style="width:750px;height:400px"></div>
       </el-card>
@@ -11,6 +11,14 @@ import echarts from 'echarts'
 import _ from 'lodash'
 
 export default {
+  props: {
+    addTab: {
+      type: Function
+    },
+    removeTab: {
+      type: Function
+    }
+  },
   data() {
     return {
       // 需要合并的数据

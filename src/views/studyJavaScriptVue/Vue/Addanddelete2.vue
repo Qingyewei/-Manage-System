@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="m-window">
         <div>
             <h1>用户管理</h1>
             <input type="text" placeholder="search" @input="search">
@@ -44,6 +44,14 @@
 
 <script>
 export default {
+    props: {
+    addTab: {
+      type: Function
+    },
+    removeTab: {
+      type: Function
+    }
+  },
   data() {
     return {
       slist:[],

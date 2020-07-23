@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="m-window">
     <el-card>
       <el-table :data="rightsList" boder stripe>
         <el-table-column type="index"></el-table-column>>
@@ -19,6 +19,14 @@
 
 <script>
 export default {
+  props: {
+    addTab: {
+      type: Function
+    },
+    removeTab: {
+      type: Function
+    }
+  },
   data() {
     return {
       //权限列表

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="m-window">
     <el-card>
       <el-row>
         <el-col>
@@ -87,6 +87,14 @@
 
 <script>
 export default {
+  props: {
+    addTab: {
+      type: Function
+    },
+    removeTab: {
+      type: Function
+    }
+  },
   data() {
     return {
       // 所有角色列表数据

@@ -1,5 +1,5 @@
 <template>
-  <div class="Addanddelete3">
+  <div class="Addanddelete3 m-window">
     <div class="st">
       <h1>vue实现增删改查</h1>
     </div>
@@ -119,6 +119,14 @@ Vue.component("model", {
 });
 
 export default {
+  props: {
+    addTab: {
+      type: Function
+    },
+    removeTab: {
+      type: Function
+    }
+  },
   data() {
     return {
       isActive: false,

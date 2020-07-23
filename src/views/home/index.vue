@@ -1,10 +1,16 @@
 <template>
-  <div class="m-home">
+  <div class="m-window">
     <el-header>
-      <div class="m-hearImg">
-        <!-- <img src="@assets/logo.png" alt /> -->
+      <!-- <div class="m-hearImg">
+        <img src="@assets/logo.png" alt />
+      </div>-->
+      <!-- <el-button type="primary" @click="loginout">退出</el-button> -->
+      <!-- 退出 -->
+      <div class="top-logout" title="退出系统" @click="loginout">
+        <svg class="icon top-icon">
+          <use xlink:href="#iconloginout" />
+        </svg>
       </div>
-      <el-button type="primary" @click="loginout">退出</el-button>
     </el-header>
 
     <!-- <div class="m-left">
@@ -31,7 +37,7 @@
       <!-- <div class="icons" @click="toggleCollapse" style="color:red">
         <i class="el-icon-s-unfold" v-if="isCollapse"></i>
         <i class="el-icon-s-fold" v-else></i>
-      </div> -->
+      </div>-->
 
       <el-menu
         class="el-menu-vertical-demo"
@@ -54,7 +60,7 @@
             </svg>
             <!-- <svg class="icon">
               <use xlink:href="#icon-left" />
-            </svg> -->
+            </svg>-->
             <span v-if="!isCollapse">{{item.authName}}</span>
           </template>
           <el-menu-item-group>
@@ -74,8 +80,8 @@
         </el-submenu>
         <el-menu-item :index="index + ''" v-else @click="goMenu(item)">
           <svg class="icon">
-              <use :href="'#icon'+ item.path" />
-            </svg>
+            <use :href="'#icon'+ item.path" />
+          </svg>
           <span>{{item.authName}}</span>
         </el-menu-item>
       </el-menu>
@@ -108,7 +114,7 @@
         <el-radio-button :label="false" v-show="isCollapse">展开</el-radio-button>
         <el-radio-button :label="true" v-show="!isCollapse">收起</el-radio-button>
       </el-radio-group>
-    </div> -->
+    </div>-->
 
     <div class="m-right" :class="isCollapse ? 'm-right-fold' : 'm-right-unfold'">
       <!-- 重置标签页按钮 -->
@@ -145,7 +151,7 @@ export default {
       // Openeds=['...'] 属性内容和下面的 <el-submenu index="..."> 里面的index内容是关联的，两个属性内容是一样的就可以关联了
       isOpeneds: [],
       isCollapse: false,
-      
+
       // activePath: "",
       editableTabsValue: "1",
       editableTabs: [],
@@ -156,9 +162,9 @@ export default {
           authName: "Study-JavaScript-Vue",
           id: 1,
           order: 1,
-          path: "StudyJavaScriptVue"
-        }
-      ]
+          path: "StudyJavaScriptVue",
+        },
+      ],
     };
   },
   created() {
@@ -189,11 +195,11 @@ export default {
       }
       if (tabs.length <= 1) {
         this.editableTabsValue = "1";
-        this.editableTabs = tabs.filter(tab => tab.name !== targetName);
+        this.editableTabs = tabs.filter((tab) => tab.name !== targetName);
         return;
       }
       this.editableTabsValue = activeName;
-      this.editableTabs = tabs.filter(tab => tab.name !== targetName);
+      this.editableTabs = tabs.filter((tab) => tab.name !== targetName);
     },
     // 新建标签页
     addTab(data) {
@@ -214,7 +220,7 @@ export default {
           this.editableTabs.push({
             title: data.authName,
             name: newTabName,
-            content: data.path
+            content: data.path,
           });
           this.editableTabsValue = newTabName;
         }
@@ -223,7 +229,7 @@ export default {
         this.editableTabs.push({
           title: data.authName,
           name: newTabName,
-          content: data.path
+          content: data.path,
         });
         this.editableTabsValue = newTabName;
       }
@@ -246,7 +252,7 @@ export default {
         showClose: false,
         confirmButtonText: "确定",
         cancelButtonText: "取消",
-        customClass: "confirmAsk"
+        customClass: "confirmAsk",
       })
         .then(() => {
           this.editableTabs = [];
@@ -255,7 +261,7 @@ export default {
           this.isOpeneds = [];
           this.$router.push({ name: "home" });
         })
-        .catch(action => {
+        .catch((action) => {
           console.log(action);
         });
     },
@@ -291,7 +297,7 @@ export default {
         showClose: false,
         confirmButtonText: "确定",
         cancelButtonText: "取消",
-        customClass: "confirmAsk"
+        customClass: "confirmAsk",
       })
         .then(() => {
           this.editableTabs = [];
@@ -300,15 +306,15 @@ export default {
           this.isOpeneds = [];
           this.$router.push({ name: "Home" });
         })
-        .catch(action => {
+        .catch((action) => {
           console.log(action);
         });
-    }
+    },
     // saveNavState(activePath){
     //   window.sessionStorage.setItem('activePath', activePath)
     //   this.activePath = activePath;
     // }
-  }
+  },
 };
 </script>
 
