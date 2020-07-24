@@ -40,48 +40,43 @@
       </div>-->
 
       <el-menu
-      :default-active="activeIndex + ''"
-        class="el-menu-vertical-demo"
+        :default-active="activeIndex + ''"
         :collapse="isCollapse"
         unique-opened
         :default-openeds="isOpeneds"
       >
-      <div v-for="(item,index) in menulist" :key="index">
-        <el-submenu
-          :index="item.id + ''"
-          v-if="item.children"
-        >
-          <template slot="title">
+        <div v-for="(item,index) in menulist" :key="index" >
+          <el-submenu :index="index + ''" v-if="item.children">
+            <template slot="title">
+              <svg class="icon">
+                <use :href="'#icon'+ item.path" />
+              </svg>
+              <span slot="title" v-if="!isCollapse">{{item.authName}}</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item
+                class="m-el-menu-item"
+                v-for="(child,idx,index) in item.children"
+                :key="idx"
+                :index="index+'-' + idx"
+                @click="goMenu(child, item)"
+              >
+                <!-- {{child2.authName}} -->
+                <template slot="title">
+                  <span slot="title">{{child.authName}}</span>
+                </template>
+              </el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+
+          <el-menu-item :index="index + ''" v-else @click="goMenu(item)">
             <svg class="icon">
-              <use :href="'#icon'+ item.path" />
+              <use :href="'#icon' + item.path" />
             </svg>
-            <!-- <svg class="icon">
-              <use xlink:href="#icon-left" />
-            </svg>-->
-            <span v-if="!isCollapse">{{item.authName}}</span>
-          </template>
-          <el-menu-item-group>
-            <el-menu-item
-              :index="'/'+subItem.path"
-              v-for="subItem in item.children"
-              :key="subItem.id"
-              @click="goMenu(subItem,item)"
-              :class="{'active':item.authName==titleName}"
-            >
-              <template slot="title">
-                <!-- <i class="el-icon-menu"></i> -->
-                <span>{{subItem.authName}}</span>
-              </template>
-            </el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-        <el-menu-item :index="index + ''" v-else @click="goMenu(item)">
-          <svg class="icon">
-            <use :href="'#icon'+ item.path" />
-          </svg>
-          <span>{{item.authName}}</span>
-        </el-menu-item>
+            <span slot="title">{{item.authName}}</span>
+          </el-menu-item>
         </div>
+        {{activeIndex}}
       </el-menu>
     </div>
 
@@ -105,15 +100,19 @@
           </div>
         </div>
       </div>
-    </div> -->
+    </div>-->
     <div :class="isCollapse ? 'el-radio-group-fold' : 'el-radio-group-unfold'">
       <el-radio-group v-model="isCollapse">
-        <el-radio-button :label="false" v-show="isCollapse"><svg class="icon">
-              <use xlink:href="#iconright" />
-            </svg></el-radio-button>
-        <el-radio-button :label="true" v-show="!isCollapse"><svg class="icon">
-              <use xlink:href="#iconleft" />
-            </svg></el-radio-button>
+        <el-radio-button :label="false" v-show="isCollapse">
+          <svg class="icon">
+            <use xlink:href="#iconright" />
+          </svg>
+        </el-radio-button>
+        <el-radio-button :label="true" v-show="!isCollapse">
+          <svg class="icon">
+            <use xlink:href="#iconleft" />
+          </svg>
+        </el-radio-button>
       </el-radio-group>
     </div>
 
@@ -149,7 +148,7 @@ export default {
   data() {
     return {
       // 左边菜单栏当前激活列表
-      activeIndex: "1",
+      activeIndex: "0",
       menulist: [],
       // Openeds=['...'] 属性内容和下面的 <el-submenu index="..."> 里面的index内容是关联的，两个属性内容是一样的就可以关联了
       isOpeneds: [],
@@ -177,10 +176,9 @@ export default {
       ],
     };
   },
-
   //清空标签右侧activeIndex获取index值，将侧边栏导航页清空，因为activeIndex的值为null，要在渲染前给activeIndex赋值
   mounted() {
-    console.log(window.location.href);
+    // console.log(window.location.href);
     let start = window.location.href.lastIndexOf("/");
     let path = window.location.href.slice(start + 1);
     this.activeIndex = path;

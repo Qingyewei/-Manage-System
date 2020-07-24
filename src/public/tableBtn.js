@@ -30,66 +30,66 @@ export const createBtn = (data) => {
                 this.detail = this.params.data;
                 if (type == "planList") {
                     if (this.detail.isSend == '0') {
-                        this.btnChange(["删除", "编辑"]);
-                    } else {
-                        this.btnChange(["复制"]);
-                    }
-                } else if (type == "monPlanList") {
-                    if (this.detail.auditingFlag == '20') {
-                        this.btnChange(["删除", "编辑"]);
-                    } else {
-                        this.btnChange(["复制"]);
-                    }
-                } else if (type == "cmaSampleApplyList") {
-                    if (this.detail.sendFlag == '已发送') {
-                        this.btnChange(["删除", "编辑"]);
-                    } else {
-                        this.btnChange(["复制"]);
-                    }
-                } else if (type == "inspectionReportList") {
-                    if (this.detail.isSend == '1') {
-                        this.btnChange(["删除", "编辑"]);
-                    } else {
-                        this.btnChange(["复制"]);
-                    }
-                } else if (type == "customize") {
-                    if (this.detail.isNormal == '订制') {
-                        if (this.detail.isSend == '0') {
-                            this.btnChange(["删除", "编辑", "复制延期订单", "复制计划订单", "我的担保书"]);
-                        } else {
-                            this.btnChange(["复制延期订单", "复制计划订单", "我的担保书"]);
-                        }
-                    } else {
-                        if (this.detail.isSend == '0') {
-                            this.btnChange(["删除", "编辑"]);
-                        } else {
-                            this.btnChange([]);
-                        }
-                    }
-                } else if (type == "returnProduct") {
-                    if (this.detail.isSend == '0') {
-                        this.btnChange(["删除", "编辑"]);
+                        this.btnChange(["删除", "编辑","复制"]);
                     } else {
                         this.btnChange([]);
                     }
-                }
-                // 礼品订单管理模块
-                else if (type == "giftOrderSearch" || type == "giftTakeMesSearch") {
-                    if (this.detail.planBill) {
-                        this.btnChange(["复制"])
-                    } else {
-                        this.btnChange([])
-                    }
-                } else if (type == "monPlanOrderSearch") {
-                    this.btnChange([])
-                } else {
-                    if (type == 1 && this.detail.orderType=="工程订单") {
-                        this.btnChange(["删除", "编辑", "复制"]);
-                    }else if (type == 1 && this.detail.orderType=="销售订单") {
-                      this.btnChange(["删除", "编辑"]);
-                    } else {
-                        this.btnChange(["复制"]);
-                    }
+                // } else if (type == "monPlanList") {
+                //     if (this.detail.auditingFlag == '20') {
+                //         this.btnChange(["删除", "编辑"]);
+                //     } else {
+                //         this.btnChange(["复制"]);
+                //     }
+                // } else if (type == "cmaSampleApplyList") {
+                //     if (this.detail.sendFlag == '已发送') {
+                //         this.btnChange(["删除", "编辑"]);
+                //     } else {
+                //         this.btnChange(["复制"]);
+                //     }
+                // } else if (type == "inspectionReportList") {
+                //     if (this.detail.isSend == '1') {
+                //         this.btnChange(["删除", "编辑"]);
+                //     } else {
+                //         this.btnChange(["复制"]);
+                //     }
+                // } else if (type == "customize") {
+                //     if (this.detail.isNormal == '订制') {
+                //         if (this.detail.isSend == '0') {
+                //             this.btnChange(["删除", "编辑", "复制延期订单", "复制计划订单", "我的担保书"]);
+                //         } else {
+                //             this.btnChange(["复制延期订单", "复制计划订单", "我的担保书"]);
+                //         }
+                //     } else {
+                //         if (this.detail.isSend == '0') {
+                //             this.btnChange(["删除", "编辑"]);
+                //         } else {
+                //             this.btnChange([]);
+                //         }
+                //     }
+                // } else if (type == "returnProduct") {
+                //     if (this.detail.isSend == '0') {
+                //         this.btnChange(["删除", "编辑"]);
+                //     } else {
+                //         this.btnChange([]);
+                //     }
+                // }
+                // // 礼品订单管理模块
+                // else if (type == "giftOrderSearch" || type == "giftTakeMesSearch") {
+                //     if (this.detail.planBill) {
+                //         this.btnChange(["复制"])
+                //     } else {
+                //         this.btnChange([])
+                //     }
+                // } else if (type == "monPlanOrderSearch") {
+                //     this.btnChange([])
+                // } else {
+                //     if (type == 1 && this.detail.orderType=="工程订单") {
+                //         this.btnChange(["删除", "编辑", "复制"]);
+                //     }else if (type == 1 && this.detail.orderType=="销售订单") {
+                //       this.btnChange(["删除", "编辑"]);
+                //     } else {
+                //         this.btnChange(["复制"]);
+                //     }
                 }
             },
             methods: {

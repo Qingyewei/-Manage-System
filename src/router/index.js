@@ -7,7 +7,7 @@ VueRouter.prototype.push = function push(location) {
 }
 
 
-import Home from '@views/home'
+import Home from '@views/home/one'
 
 const mine = () => import('@views/mine')
 
