@@ -29,14 +29,14 @@
     {
       "icon_id": "5650844",
       "name": "表格",
-      "font_class": "basicForm",
+      "font_class": "basedTable",
       "unicode": "e602",
       "unicode_decimal": 58882
     },
     {
       "icon_id": "6248027",
       "name": "图标8",
-      "font_class": "icon",
+      "font_class": "customIcon",
       "unicode": "e603",
       "unicode_decimal": 58883
     },
@@ -50,7 +50,7 @@
     {
       "icon_id": "7350866",
       "name": "地球，国际化，语言切换",
-      "font_class": "i18n",
+      "font_class": "internationalization",
       "unicode": "e676",
       "unicode_decimal": 58998
     },
@@ -64,7 +64,7 @@
     {
       "icon_id": "15218119",
       "name": "barschart",
-      "font_class": "charts",
+      "font_class": "schartCharts",
       "unicode": "e619",
       "unicode_decimal": 58905
     },

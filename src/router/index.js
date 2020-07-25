@@ -94,14 +94,69 @@ const routes = [{
         copmonent: () => import('@/views/dashboard')
       },
       {
-        path: '/basicForm',
-        name: 'basicForm',
-        copmonent: () => import('@/views/basicForm')
+        path: '/basedTable',
+        name: 'basedTable',
+        copmonent: () => import('@/views/basedTable')
       },
       {
         path: '/tabs',
         name: 'tabs',
         copmonent: () => import('@/views/tabs')
+      },
+      {
+        path: '/basicForm',
+        name: 'basicForm',
+        copmonent: () => import('@/views/formRelated/basicForm')
+      },
+      {
+        path: '/editor',
+        name: 'editor',
+        copmonent: () => import('@/views/formRelated/editor')
+      },
+      {
+        path: '/markdown',
+        name: 'markdown',
+        copmonent: () => import('@/views/formRelated/markdown')
+      },
+      {
+        path: '/upload',
+        name: 'upload',
+        copmonent: () => import('@/views/formRelated/upload')
+      },
+      {
+        path: '/customIcon',
+        name: 'customIcon',
+        copmonent: () => import('@/views/customIcon')
+      },
+      {
+        path: '/schartCharts',
+        name: 'schartCharts',
+        copmonent: () => import('@/views/schartCharts')
+      },
+      {
+        path: '/drag',
+        name: 'drag',
+        copmonent: () => import('@/views/dragAndDrop/drag')
+      },
+      {
+        path: '/dialogBox',
+        name: 'dialogBox',
+        copmonent: () => import('@/views/dragAndDrop/dialogBox')
+      },
+      {
+        path: '/internationalization',
+        name: 'internationalization',
+        copmonent: () => import('@/views/internationalization')
+      },
+      {
+        path: '/pageMissing',
+        name: 'pageMissing',
+        copmonent: () => import('@/views/errorHandling/pageMissing.vue')
+      },
+      {
+        path: '/permission',
+        name: 'permission',
+        copmonent: () => import('@/views/errorHandling/permission.vue')
       },
     ]
   },

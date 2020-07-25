@@ -1,4 +1,4 @@
 let components ={
-    basicForm:()=>import ('./index.vue')
+    customIcon:()=>import ('./index.vue')
 }
 export default components

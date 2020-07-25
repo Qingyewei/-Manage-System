@@ -186,7 +186,7 @@ export default {
           authName: "基础表格",
           id: 3,
           order: 3,
-          path: "basicForm",
+          path: "basedTable",
         },
         {
           authName: "tab选项卡",
@@ -204,7 +204,7 @@ export default {
               authName: "基本表单",
               id: 1,
               order: 1,
-              path: "form",
+              path: "basicForm",
             },
 
             {
@@ -231,13 +231,13 @@ export default {
           authName: "自定义图标",
           id: 6,
           order: 6,
-          path: "icon",
+          path: "customIcon",
         },
         {
           authName: "schart图表",
           id: 7,
           order: 7,
-          path: "charts",
+          path: "schartCharts",
         },
         {
           authName: "拖拽组件",
@@ -255,7 +255,7 @@ export default {
               authName: "拖拽弹框",
               id: 2,
               order: 2,
-              path: "dialog",
+              path: "dialogBox",
             },
           ],
         },
@@ -263,7 +263,7 @@ export default {
           authName: "国际化功能",
           id: 9,
           order: 9,
-          path: "i18n",
+          path: "internationalization",
         },
         {
           authName: "错误处理",
@@ -281,7 +281,7 @@ export default {
               authName: "404页面",
               id: 2,
               order: 2,
-              path: "404",
+              path: "pageMissing",
             },
           ]
         },
