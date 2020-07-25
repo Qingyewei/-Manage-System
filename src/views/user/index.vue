@@ -1,7 +1,7 @@
 <template>
-  <div class="m-window">
+  <div class="m-users m-window">
     <!-- 卡片视图区域 -->
-    <el-card>
+    <div>
       <!-- 搜索与添加区域 -->
       <el-row :gutter="20">
         <el-col :span="8">
@@ -65,7 +65,7 @@
         layout="total, sizes, prev, pager, next, jumper"
         :total="total"
       ></el-pagination>
-    </el-card>
+    </div>
 
     <!-- 添加用户的对话框 -->
     <el-dialog title="添加用户" :visible.sync="addDialogVisible" width="50%" @close="addDialogClosed">

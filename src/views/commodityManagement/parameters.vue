@@ -1,7 +1,7 @@
 <template>
   <div class="m-window">
     <!-- 卡片视图区域 -->
-    <el-card>
+    <div>
       <!-- 警告区域 -->
       <el-alert show-icon title="注意：只允许为第三级分类设置相关参数！" type="warning" :closable="false"></el-alert>
 
@@ -145,7 +145,7 @@
           </el-table>
         </el-tab-pane>
       </el-tabs>
-    </el-card>
+    </div>
 
     <!-- 添加参数的对话框 -->
     <el-dialog

@@ -56,9 +56,9 @@
             <el-menu-item-group>
               <el-menu-item
                 class="m-el-menu-item"
-                v-for="(child,idx,index) in item.children"
-                :key="idx"
-                :index="index+'-' + idx"
+                :index="'/' + child.path"
+                v-for="(child,index) in item.children"
+                :key="index"
                 @click="goMenu(child, item)"
               >
                 <!-- {{child2.authName}} -->
@@ -76,7 +76,6 @@
             <span slot="title">{{item.authName}}</span>
           </el-menu-item>
         </div>
-        {{activeIndex}}
       </el-menu>
     </div>
 
@@ -187,13 +186,13 @@ export default {
   },
   created() {
     this.getMenuList();
-    this.$router.push("/Home");
+    this.$router.push("/home");
     // this.activePath = window.sessionStorage.getItem("activePath");
     if (
       this.editableTabs.length == 0 &&
       this.$router.currentRoute.name != "mine"
     ) {
-      this.$router.push({ name: "Home" });
+      this.$router.push({ name: "home" });
     }
   },
   methods: {
@@ -277,7 +276,7 @@ export default {
           this.editableTabsValue = "1";
           this.activeIndex = "0";
           this.isOpeneds = [];
-          this.$router.push({ name: "Home" });
+          this.$router.push({ name: "home" });
         })
         .catch((action) => {
           console.log(action);

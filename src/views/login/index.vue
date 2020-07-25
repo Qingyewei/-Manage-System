@@ -1,5 +1,6 @@
 <template>
   <div class="login-container">
+      <img src="@/assets/img/login.jpg" alt="">
       <div class="login-box">
           <!-- 头像区域 -->
           <div class="avatar-box">
@@ -53,8 +54,10 @@ export default {
               console.log("login:", res);
               if(res.meta.status !== 200) return this.$message.error('登录失败')
               this.$message.success('登录成功')
-              window.sessionStorage.setItem('token', res.data.token)
-              this.$router.push('/Home')
+            //   window.sessionStorage.setItem('token', res.data.token)
+            window.token = res.data.token
+            this.$auth.login()
+              this.$router.push('/home')
           })
       }
   }
@@ -63,7 +66,6 @@ export default {
 
 <style lang='less'>
 .login-container{
-    background-color: #2b4b6b;
     height: 100%;
     .login-box{
         width: 450px;

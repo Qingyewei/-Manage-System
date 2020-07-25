@@ -1,6 +1,6 @@
 <template>
   <div class="m-window">
-   <el-card>
+   <div>
      <el-row>
        <el-col>
          <el-button type="primary" @click="showAddDialog">添加分类</el-button>
@@ -42,7 +42,7 @@
      <!-- 分页区域 -->
       <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="querInfo.pagenum" :page-sizes="[3, 5, 10, 15]" :page-size="querInfo.pagesize" layout="total, sizes, prev, pager, next, jumper" :total="total">
       </el-pagination>
-   </el-card>
+   </div>
 
 
    <!-- 添加分类的模态框 -->

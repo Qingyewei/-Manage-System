@@ -1,6 +1,6 @@
 <template>
-  <div class="m-window">
-    <el-card>
+  <div class="m-permissionsList m-window">
+    <div>
       <el-table :data="rightsList" boder stripe>
         <el-table-column type="index"></el-table-column>>
         <el-table-column header-align="center" align="center" label="权限名称" prop="authName"></el-table-column>
@@ -13,7 +13,7 @@
           </template>
         </el-table-column>
       </el-table>
-    </el-card>
+    </div>
   </div>
 </template>
 

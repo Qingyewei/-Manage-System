@@ -2,7 +2,7 @@
   <div class="m-window">
 
     <!-- 卡片视图 -->
-    <el-card>
+    <div>
       <!-- 提示区域 -->
       <el-alert title="添加商品信息" type="info" center show-icon :closable="false"></el-alert>
       <!-- 步骤条区域 -->
@@ -88,7 +88,7 @@
           </el-tab-pane>
         </el-tabs>
       </el-form>
-    </el-card>
+    </div>
 
     <!-- 图片预览 -->
     <el-dialog v-dialogDrag title="图片预览" :visible.sync="previewVisible" width="50%">

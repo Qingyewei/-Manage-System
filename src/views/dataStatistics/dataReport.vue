@@ -1,8 +1,8 @@
 <template>
   <div class="m-window">
-      <el-card>
+      <div>
           <div id="main" style="width:750px;height:400px"></div>
-      </el-card>
+      </div>
   </div>
 </template>
 

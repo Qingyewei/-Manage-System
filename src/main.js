@@ -53,21 +53,25 @@ import './plugins/timeline-item/timeline-item.css';
 Vue.use(Timeline)
 Vue.use(TimelineItem)
 
-import axios from 'axios'
-axios.defaults.baseURL='http://127.0.0.1:8888/api/private/v1/'
-// 在 request 拦截器中，展示进度条 NProgress.start()
-axios.interceptors.request.use(config =>{
-  NProgress.start()
-  config.headers.Authorization = window.sessionStorage.getItem('token')
-  // 在最后必须 return confi
-  return config
-})
-// 在 response 拦截器中，隐藏进度条 NProgress.done()
-axios.interceptors.response.use(config=>{
-  NProgress.done()
-  return config
-})
-Vue.prototype.$http = axios
+
+import auth from '@/public/auth'
+Vue.use(auth)
+
+// import axios from 'axios'
+// axios.defaults.baseURL='http://127.0.0.1:8888/api/private/v1/'
+// // 在 request 拦截器中，展示进度条 NProgress.start()
+// axios.interceptors.request.use(config =>{
+//   NProgress.start()
+//   config.headers.Authorization = window.sessionStorage.getItem('token')
+//   // 在最后必须 return confi
+//   return config
+// })
+// // 在 response 拦截器中，隐藏进度条 NProgress.done()
+// axios.interceptors.response.use(config=>{
+//   NProgress.done()
+//   return config
+// })
+// Vue.prototype.$http = axios
 
 Vue.filter('dateFormat', function(originVal) {
   const dt = new Date(originVal)

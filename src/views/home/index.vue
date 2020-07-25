@@ -1,17 +1,17 @@
 <template>
-  <div class="m-window">
-    <el-header>
-      <!-- <div class="m-hearImg">
-        <img src="@assets/logo.png" alt />
-      </div>-->
-      <!-- <el-button type="primary" @click="loginout">退出</el-button> -->
-      <!-- 退出 -->
-      <div class="top-logout" title="退出系统" @click="loginout">
-        <svg class="icon top-icon">
-          <use xlink:href="#iconloginout" />
-        </svg>
+  <div class="m-home">
+    <!-- 头部 -->
+    <div class="m-top">
+      <!-- 用户头像 -->
+      <div class="m-topRight">
+        <!-- 退出 -->
+        <div class="top-logout" title="退出系统" @click="loginout">
+          <svg class="icon top-icon">
+            <use xlink:href="#iconloginout" />
+          </svg>
+        </div>
       </div>
-    </el-header>
+    </div>
 
     <!-- <div class="m-left">
       <ul>
@@ -40,47 +40,41 @@
       </div>-->
 
       <el-menu
-      :default-active="activeIndex + ''"
+        :default-active="activeIndex + ''"
         class="el-menu-vertical-demo"
         :collapse="isCollapse"
         unique-opened
         :default-openeds="isOpeneds"
       >
-      <div v-for="(item,index) in menulist" :key="index">
-        <el-submenu
-          :index="item.id + ''"
-          v-if="item.children"
-        >
-          <template slot="title">
+        <div v-for="(item,index) in menulist" :key="index">
+          <el-submenu :index="item.id + ''" v-if="item.children">
+            <template slot="title">
+              <svg class="icon">
+                <use :href="'#icon'+ item.path" />
+              </svg>
+              <span v-if="!isCollapse">{{item.authName}}</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item
+                :index="'/'+subItem.path"
+                v-for="subItem in item.children"
+                :key="subItem.id"
+                @click="goMenu(subItem,item)"
+                :class="{'active':item.authName==titleName}"
+              >
+                <template slot="title">
+                  <!-- <i class="el-icon-menu"></i> -->
+                  <span>{{subItem.authName}}</span>
+                </template>
+              </el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+          <el-menu-item :index="index + ''" v-else @click="goMenu(item)">
             <svg class="icon">
               <use :href="'#icon'+ item.path" />
             </svg>
-            <!-- <svg class="icon">
-              <use xlink:href="#icon-left" />
-            </svg>-->
-            <span v-if="!isCollapse">{{item.authName}}</span>
-          </template>
-          <el-menu-item-group>
-            <el-menu-item
-              :index="'/'+subItem.path"
-              v-for="subItem in item.children"
-              :key="subItem.id"
-              @click="goMenu(subItem,item)"
-              :class="{'active':item.authName==titleName}"
-            >
-              <template slot="title">
-                <!-- <i class="el-icon-menu"></i> -->
-                <span>{{subItem.authName}}</span>
-              </template>
-            </el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-        <el-menu-item :index="index + ''" v-else @click="goMenu(item)">
-          <svg class="icon">
-            <use :href="'#icon'+ item.path" />
-          </svg>
-          <span>{{item.authName}}</span>
-        </el-menu-item>
+            <span>{{item.authName}}</span>
+          </el-menu-item>
         </div>
       </el-menu>
     </div>
@@ -105,15 +99,19 @@
           </div>
         </div>
       </div>
-    </div> -->
+    </div>-->
     <div :class="isCollapse ? 'el-radio-group-fold' : 'el-radio-group-unfold'">
       <el-radio-group v-model="isCollapse">
-        <el-radio-button :label="false" v-show="isCollapse"><svg class="icon">
-              <use xlink:href="#iconright" />
-            </svg></el-radio-button>
-        <el-radio-button :label="true" v-show="!isCollapse"><svg class="icon">
-              <use xlink:href="#iconleft" />
-            </svg></el-radio-button>
+        <el-radio-button :label="false" v-show="isCollapse">
+          <svg class="icon">
+            <use xlink:href="#iconright" />
+          </svg>
+        </el-radio-button>
+        <el-radio-button :label="true" v-show="!isCollapse">
+          <svg class="icon">
+            <use xlink:href="#iconleft" />
+          </svg>
+        </el-radio-button>
       </el-radio-group>
     </div>
 
@@ -149,7 +147,7 @@ export default {
   data() {
     return {
       // 左边菜单栏当前激活列表
-      activeIndex: "1",
+      activeIndex: "0",
       menulist: [],
       // Openeds=['...'] 属性内容和下面的 <el-submenu index="..."> 里面的index内容是关联的，两个属性内容是一样的就可以关联了
       isOpeneds: [],
@@ -179,23 +177,23 @@ export default {
   },
 
   //清空标签右侧activeIndex获取index值，将侧边栏导航页清空，因为activeIndex的值为null，要在渲染前给activeIndex赋值
-  mounted() {
-    console.log(window.location.href);
-    let start = window.location.href.lastIndexOf("/");
-    let path = window.location.href.slice(start + 1);
-    this.activeIndex = path;
+  // mounted() {
+  //   console.log(window.location.href);
+  //   let start = window.location.href.lastIndexOf("/");
+  //   // let path = window.location.href.slice(start + 1);
+  //   // this.activeIndex = path;
 
-    console.log(this.activeIndex);
-  },
+  //   console.log(this.activeIndex);
+  // },
   created() {
     this.getMenuList();
-    this.$router.push("/Home");
+    // this.$router.push("/home");
     // this.activePath = window.sessionStorage.getItem("activePath");
     if (
       this.editableTabs.length == 0 &&
       this.$router.currentRoute.name != "mine"
     ) {
-      this.$router.push({ name: "Home" });
+      this.$router.push({ name: "home" });
     }
   },
   methods: {
@@ -277,16 +275,46 @@ export default {
         .then(() => {
           this.editableTabs = [];
           this.editableTabsValue = "1";
-          this.activeIndex = "0";
+          this.activeIndex = "";
           this.isOpeneds = [];
-          this.$router.push({ name: "Home" });
+          this.$router.push({ name: "home" });
         })
         .catch((action) => {
           console.log(action);
         });
     },
+    // loginout() {
+    //   window.sessionStorage.clear();
+    //   this.$router.push("/login");
+    // },
+    /**
+     * @vuese
+     * 退出登陆
+     */
     loginout() {
-      window.sessionStorage.clear();
+      this.$confirm("是否确定退出登录？", "消息提示", {
+        distinguishCancelAndClose: true,
+        showClose: false,
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        customClass: "confirmAsk",
+      })
+        .then(() => {
+          this.goLogin();
+        })
+        .catch((action) => {});
+    },
+    /**
+     * @vuese
+     * 返回登录页方法，
+     * 判断从 electron/ web 方案返回不同页面
+     */
+    goLogin() {
+      // 清除用户数据
+      // removeStorage("menulist");
+      // sessionStorage.clear();
+      window.token = ''
+      // 跳转登录页
       this.$router.push("/login");
     },
     async getMenuList() {
@@ -316,25 +344,5 @@ export default {
 </script>
 
 <style lang='less'>
-.m-home {
-  .m-hearImg {
-    display: block;
-    width: 60px;
-    height: 60px;
-  }
-  .reset-btn {
-    position: absolute;
-    right: 0px;
-    z-index: 1;
-    line-height: 40px;
-    width: 90px;
-    text-align: center;
-    .el-button {
-      padding: 0 10px;
-      height: 32px;
-      line-height: 31px;
-    }
-  }
-}
 </style>
 

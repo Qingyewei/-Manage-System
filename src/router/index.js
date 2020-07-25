@@ -7,7 +7,7 @@ VueRouter.prototype.push = function push(location) {
 }
 
 
-import Home from '@views/home/one'
+import home from '@views/home'
 
 const mine = () => import('@views/mine')
 
@@ -22,9 +22,9 @@ const routes = [{
     component: () => import('@views/login/index')
   },
   {
-    path: '/Home',
-    name: 'Home',
-    component: Home,
+    path: '/home',
+    name: 'home',
+    component: home,
     redirect: '/mine',
     children: [{
         path: '/mine',
@@ -107,5 +107,24 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.path == '/login') {
+    if(!window.token){
+      next()
+    }else{
+      window.token = ''
+      next()
+    }
+  } else {
+    if (!window.token) {
+      next('/login')
+    } else {
+      next()
+    }
+  }
+})
+
+
 
 export default router

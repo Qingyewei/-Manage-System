@@ -1,6 +1,6 @@
 <template>
-  <div class="m-window">
-    <el-card>
+  <div class="m-roleList m-window">
+    <div>
       <el-row>
         <el-col>
           <el-button type="primary">添加角色</el-button>
@@ -56,7 +56,7 @@
           </template>
         </el-table-column>
       </el-table>
-    </el-card>
+    </div>
 
     <!-- 分配权限的模态框 -->
      <!-- 分配权限的对话框 -->
