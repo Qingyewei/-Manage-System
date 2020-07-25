@@ -50,10 +50,9 @@
           <el-submenu :index="item.id + ''" v-if="item.children">
             <template slot="title">
               <!-- 当没有icon时使用svg，没有的时候使用i -->
-              <svg class="icon" v-if="!item.icon">
+              <svg class="icon">
                 <use :href="'#icon'+ item.path" />
               </svg>
-              <i v-else :class="item.icon"></i>
               <span v-if="!isCollapse">{{item.authName}}</span>
             </template>
             <!-- children2 -->
@@ -73,11 +72,10 @@
           </el-submenu>
           <el-menu-item :index="index + ''" v-else @click="goMenu(item)">
             <!-- 当没有icon时使用svg，没有的时候使用i -->
-            <svg class="icon" v-if="!item.icon">
+            <svg class="icon">
               <use :href="'#icon'+ item.path" />
             </svg>
-            <i v-else :class="item.icon"></i>
-            <span>{{item.authName}}</span>
+            <span v-if="!isCollapse">{{item.authName}}</span>
           </el-menu-item>
         </div>
       </el-menu>
