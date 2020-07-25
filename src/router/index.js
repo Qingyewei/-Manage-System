@@ -19,7 +19,8 @@ const routes = [{
   },
   {
     path: '/login',
-    component: () => import('@/views/login/index')
+    component: () => import('@/views/login/index'),
+    meta:{title:'登录'}
   },
   {
     path: '/home',
@@ -29,37 +30,45 @@ const routes = [{
     children: [{
         path: '/mine',
         name: 'mine',
-        component: mine
+        component: mine,
+        meta:{title:'欢迎'}
       },
       {
         path: '/users',
         name: 'users',
-        component: () => import('@/views/user')
+        component: () => import('@/views/user'),
+        meta:{title:'用户管理'}
+        
       },
       {
         path: '/roles',
         name: 'roleList',
-        component: () => import('@/views/rights/roleList')
+        component: () => import('@/views/rights/roleList'),
+        meta:{title:'角色列表'}
       },
       {
         path: '/rights',
         name: 'permissionsList',
-        component: () => import('@/views/rights/permissionsList')
+        component: () => import('@/views/rights/permissionsList'),
+        meta:{title:'权限列表'}
       },
       {
         path: '/goods',
         name: 'goods',
-        component: () => import('@/views/commodityManagement/productList')
+        component: () => import('@/views/commodityManagement/productList'),
+        meta:{title:'商品列表'}
       },
       {
         path: '/params',
         name: 'params',
-        component: () => import('@/views/commodityManagement/parameters')
+        component: () => import('@/views/commodityManagement/parameters'),
+        meta:{title:'分类参数'}
       },
       {
         path: '/categories',
         name: 'categories',
-        component: () => import('@/views/commodityManagement/classification')
+        component: () => import('@/views/commodityManagement/classification'),
+        meta:{title:'商品分类'}
       },
 
       // data数据中没有这个path，所以路由路径不显示
@@ -71,17 +80,21 @@ const routes = [{
       {
         path: '/orders',
         name: 'orders',
-        copmonent: () => import('@/views/orderManagement/orderList')
+        copmonent: () => import('@/views/orderManagement/orderList'),
+        meta:{title:'订单列表'}
+        
       },
       {
         path: '/reports',
         name: 'reports',
-        copmonent: () => import('@/views/dataStatistics/dataReport')
+        copmonent: () => import('@/views/dataStatistics/dataReport'),
+        meta:{title:'数据统计'}
       },
       {
         path: '/StudyJavaScriptVue',
         name: 'StudyJavaScriptVue',
         copmonent: () => import('@/views/studyJavaScriptVue'),
+        meta:{title:'学习Vue.js'}
         // children: [{
         //   path: '/StudyJavaScriptVue/JavaScriptdragAndDrop',
         //   name: 'StudyJavaScriptVue/JavaScriptdragAndDrop',
@@ -91,72 +104,86 @@ const routes = [{
       {
         path: '/dashboard',
         name: 'dashboard',
-        copmonent: () => import('@/views/dashboard')
+        copmonent: () => import('@/views/dashboard'),
+        meta: { title: '系统首页' }
       },
       {
         path: '/basedTable',
         name: 'basedTable',
-        copmonent: () => import('@/views/basedTable')
+        copmonent: () => import('@/views/basedTable'),
+        meta: { title: '基础表格' }
       },
       {
         path: '/tabs',
         name: 'tabs',
-        copmonent: () => import('@/views/tabs')
+        copmonent: () => import('@/views/tabs'),
+        meta: { title: 'tab选项卡' }
       },
       {
         path: '/basicForm',
         name: 'basicForm',
-        copmonent: () => import('@/views/formRelated/basicForm')
+        copmonent: () => import('@/views/formRelated/basicForm'),
+        meta: { title: '基本表单' }
       },
       {
         path: '/editor',
         name: 'editor',
-        copmonent: () => import('@/views/formRelated/editor')
+        copmonent: () => import('@/views/formRelated/editor'),
+        meta: { title: '富文本编辑器' }
       },
       {
         path: '/markdown',
         name: 'markdown',
-        copmonent: () => import('@/views/formRelated/markdown')
+        copmonent: () => import('@/views/formRelated/markdown'),
+        meta: { title: 'markdown编辑器' }
       },
       {
         path: '/upload',
         name: 'upload',
-        copmonent: () => import('@/views/formRelated/upload')
+        copmonent: () => import('@/views/formRelated/upload'),
+        meta: { title: '文件上传' }
       },
       {
         path: '/customIcon',
         name: 'customIcon',
-        copmonent: () => import('@/views/customIcon')
+        copmonent: () => import('@/views/customIcon'),
+        meta: { title: '自定义图标' }
       },
       {
         path: '/schartCharts',
         name: 'schartCharts',
-        copmonent: () => import('@/views/schartCharts')
+        copmonent: () => import('@/views/schartCharts'),
+        meta: { title: 'schart图表' }
       },
       {
         path: '/drag',
         name: 'drag',
-        copmonent: () => import('@/views/dragAndDrop/drag')
+        copmonent: () => import('@/views/dragAndDrop/drag'),
+        meta: { title: '拖拽列表' }
       },
       {
         path: '/dialogBox',
         name: 'dialogBox',
-        copmonent: () => import('@/views/dragAndDrop/dialogBox')
+        copmonent: () => import('@/views/dragAndDrop/dialogBox'),
+        meta: { title: '拖拽弹框' }
       },
       {
         path: '/internationalization',
         name: 'internationalization',
-        copmonent: () => import('@/views/internationalization')
+        copmonent: () => import('@/views/internationalization'),
+        meta: { title: '国际化' }
       },
       {
         path: '/pageMissing',
         name: 'pageMissing',
-        copmonent: () => import('@/views/errorHandling/pageMissing.vue')
+        copmonent: () => import('@/views/errorHandling/pageMissing.vue'),
+        meta: { title: '权限测试', permission: true }
       },
       {
         path: '/permission',
         name: 'permission',
-        copmonent: () => import('@/views/errorHandling/permission.vue')
+        copmonent: () => import('@/views/errorHandling/permission.vue'),
+        meta: { title: '404' }
       },
     ]
   },
@@ -178,6 +205,8 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
+  console.log(from)
+  document.title = `${to.meta.title} | manage-system`;
   if (to.path == '/login') {
     if (!window.token) {
       next()
