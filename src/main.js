@@ -14,6 +14,17 @@ import 'quill/dist/quill.bubble.css'
 // 将富文本编辑器，注册为全局可用的组件
 Vue.use(VueQuillEditor)
 
+// 导入mavonEditor编辑器
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
+// use
+Vue.use(mavonEditor)
+
+// 导入上传文件插件
+import VueCropper from 'vue-cropperjs';
+import 'cropperjs/dist/cropper.css';
+Vue.component(VueCropper);
+
 import '@assets/fonts/iconfont.css'
 
 import './assets/css/global.less'
@@ -52,6 +63,10 @@ import './plugins/timeline-item/timeline-item.css';
 
 Vue.use(Timeline)
 Vue.use(TimelineItem)
+
+
+import Schart from 'vue-schart'
+Vue.use(Schart)
 
 
 import auth from '@/public/auth'

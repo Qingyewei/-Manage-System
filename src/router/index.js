@@ -205,7 +205,6 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  console.log(from)
   document.title = `${to.meta.title} | manage-system`;
   if (to.path == '/login') {
     if (!window.token) {
