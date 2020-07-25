@@ -7,9 +7,9 @@ VueRouter.prototype.push = function push(location) {
 }
 
 
-import home from '@views/home'
+import home from '@/views/home'
 
-const mine = () => import('@views/mine')
+const mine = () => import('@/views/mine')
 
 Vue.use(VueRouter)
 
@@ -19,7 +19,7 @@ const routes = [{
   },
   {
     path: '/login',
-    component: () => import('@views/login/index')
+    component: () => import('@/views/login/index')
   },
   {
     path: '/home',
@@ -34,61 +34,75 @@ const routes = [{
       {
         path: '/users',
         name: 'users',
-        component: () => import('@views/user')
+        component: () => import('@/views/user')
       },
       {
         path: '/roles',
         name: 'roleList',
-        component: () => import('@views/rights/roleList')
+        component: () => import('@/views/rights/roleList')
       },
       {
         path: '/rights',
         name: 'permissionsList',
-        component: () => import('@views/rights/permissionsList')
+        component: () => import('@/views/rights/permissionsList')
       },
       {
         path: '/goods',
         name: 'goods',
-        component: () => import('@views/commodityManagement/productList')
+        component: () => import('@/views/commodityManagement/productList')
       },
       {
         path: '/params',
         name: 'params',
-        component: () => import('@views/commodityManagement/parameters')
+        component: () => import('@/views/commodityManagement/parameters')
       },
       {
         path: '/categories',
         name: 'categories',
-        component: () => import('@views/commodityManagement/classification')
+        component: () => import('@/views/commodityManagement/classification')
       },
 
       // data数据中没有这个path，所以路由路径不显示
       // {
       //   path: '/addpage',
       //   name: 'addpage',
-      //   component: () => import('@views/commodityManagement/addpage')
+      //   component: () => import('@/views/commodityManagement/addpage')
       // },
       {
         path: '/orders',
         name: 'orders',
-        copmonent: () => import('@views/orderManagement/orderList')
+        copmonent: () => import('@/views/orderManagement/orderList')
       },
       {
         path: '/reports',
         name: 'reports',
-        copmonent: () => import('@views/dataStatistics/dataReport')
+        copmonent: () => import('@/views/dataStatistics/dataReport')
       },
       {
         path: '/StudyJavaScriptVue',
         name: 'StudyJavaScriptVue',
-        copmonent: () => import('@views/studyJavaScriptVue'),
+        copmonent: () => import('@/views/studyJavaScriptVue'),
         // children: [{
         //   path: '/StudyJavaScriptVue/JavaScriptdragAndDrop',
         //   name: 'StudyJavaScriptVue/JavaScriptdragAndDrop',
-        //   copmonent: () => import('@views/studyJavaScriptVue/JavaScript/JavaScriptdragAndDrop')
+        //   copmonent: () => import('@/views/studyJavaScriptVue/JavaScript/JavaScriptdragAndDrop')
         // }, ]
       },
-
+      {
+        path: '/dashboard',
+        name: 'dashboard',
+        copmonent: () => import('@/views/dashboard')
+      },
+      {
+        path: '/basicForm',
+        name: 'basicForm',
+        copmonent: () => import('@/views/basicForm')
+      },
+      {
+        path: '/tabs',
+        name: 'tabs',
+        copmonent: () => import('@/views/tabs')
+      },
     ]
   },
 
@@ -110,9 +124,9 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.path == '/login') {
-    if(!window.token){
+    if (!window.token) {
       next()
-    }else{
+    } else {
       window.token = ''
       next()
     }

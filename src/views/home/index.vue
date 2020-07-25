@@ -49,11 +49,14 @@
         <div v-for="(item,index) in menulist" :key="index">
           <el-submenu :index="item.id + ''" v-if="item.children">
             <template slot="title">
-              <svg class="icon">
+              <!-- 当没有icon时使用svg，没有的时候使用i -->
+              <svg class="icon" v-if="!item.icon">
                 <use :href="'#icon'+ item.path" />
               </svg>
+              <i v-else :class="item.icon"></i>
               <span v-if="!isCollapse">{{item.authName}}</span>
             </template>
+            <!-- children2 -->
             <el-menu-item-group>
               <el-menu-item
                 :index="'/'+subItem.path"
@@ -63,16 +66,17 @@
                 :class="{'active':item.authName==titleName}"
               >
                 <template slot="title">
-                  <!-- <i class="el-icon-menu"></i> -->
                   <span>{{subItem.authName}}</span>
                 </template>
               </el-menu-item>
             </el-menu-item-group>
           </el-submenu>
           <el-menu-item :index="index + ''" v-else @click="goMenu(item)">
-            <svg class="icon">
+            <!-- 当没有icon时使用svg，没有的时候使用i -->
+            <svg class="icon" v-if="!item.icon">
               <use :href="'#icon'+ item.path" />
             </svg>
+            <i v-else :class="item.icon"></i>
             <span>{{item.authName}}</span>
           </el-menu-item>
         </div>
@@ -165,12 +169,121 @@ export default {
       // @vuese
       // 路由标签页的标题
       titleName: "首页",
-      studyJavaScriptVueList: [
+      otherMenuList: [
         {
           authName: "Study-JavaScript-Vue",
           id: 1,
           order: 1,
           path: "StudyJavaScriptVue",
+        },
+        {
+          authName: "系统首页",
+          id: 2,
+          order: 2,
+          path: "dashboard",
+        },
+        {
+          authName: "基础表格",
+          id: 3,
+          order: 3,
+          path: "basicForm",
+        },
+        {
+          authName: "tab选项卡",
+          id: 4,
+          order: 4,
+          path: "tabs",
+        },
+        {
+          authName: "表单相关",
+          id: 5,
+          order: 5,
+          path: "formRelated",
+          children: [
+            {
+              authName: "基本表单",
+              id: 1,
+              order: 1,
+              path: "form",
+            },
+
+            {
+              authName: "富文本编辑器",
+              id: 2,
+              order: 2,
+              path: "editor",
+            },
+            {
+              authName: "markdown编辑器",
+              id: 3,
+              order: 3,
+              path: "markdown",
+            },
+            {
+              authName: "文件上传",
+              id: 4,
+              order: 4,
+              path: "upload",
+            },
+          ],
+        },
+        {
+          authName: "自定义图标",
+          id: 6,
+          order: 6,
+          path: "icon",
+        },
+        {
+          authName: "schart图表",
+          id: 7,
+          order: 7,
+          path: "charts",
+        },
+        {
+          authName: "拖拽组件",
+          id: 8,
+          order: 8,
+          path: "dragAndDrop",
+          children: [
+            {
+              authName: "拖拽列表",
+              id: 1,
+              order: 1,
+              path: "drag",
+            },
+            {
+              authName: "拖拽弹框",
+              id: 2,
+              order: 2,
+              path: "dialog",
+            },
+          ],
+        },
+        {
+          authName: "国际化功能",
+          id: 9,
+          order: 9,
+          path: "i18n",
+        },
+        {
+          authName: "错误处理",
+          id: 10,
+          order: 10,
+          path: "errorHandling",
+          children:[
+            {
+              authName: "权限测试",
+              id: 1,
+              order: 1,
+              path: "permission",
+            },
+            {
+              authName: "404页面",
+              id: 2,
+              order: 2,
+              path: "404",
+            },
+          ]
         },
       ],
     };
@@ -313,7 +426,7 @@ export default {
       // 清除用户数据
       // removeStorage("menulist");
       // sessionStorage.clear();
-      window.token = ''
+      window.token = "";
       // 跳转登录页
       this.$router.push("/login");
     },
@@ -321,7 +434,7 @@ export default {
       const { data: res } = await this.$http.get("menus");
       if (res.meta.status !== 200) return this.$message.error(res.meta.msg);
       this.menulist = res.data;
-      this.menulist = [...this.menulist, ...this.studyJavaScriptVueList];
+      this.menulist = [...this.menulist, ...this.otherMenuList];
       // this.menulist.push({
       //   authName: "JS懒加载",
       //     children: null,
@@ -330,7 +443,7 @@ export default {
       //     path: "lazyLoading"
       // })
       // console.log(res.data);
-      // console.log(this.menulist);
+      console.log(this.menulist);
     },
     toggleCollapse() {
       this.isCollapse = !this.isCollapse;

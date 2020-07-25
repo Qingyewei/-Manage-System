@@ -6,6 +6,10 @@ import goods from '../commodityManagement/components'
 import orders from '../orderManagement/components'
 import reports from '../dataStatistics/components'
 import StudyJavaScriptVue from '../studyJavaScriptVue/components'
+import dashboard from '../dashboard/components'
+import basicForm  from '../basicForm/components'
+import tabs  from '../tabs/components'
+
 
 
 let components = { };
@@ -18,7 +22,10 @@ components = Object.assign(
     goods,
     orders,
     reports,
-    StudyJavaScriptVue
+    StudyJavaScriptVue,
+    dashboard,
+    basicForm,
+    tabs,
 );
 
 export default components;

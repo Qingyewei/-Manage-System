@@ -6,6 +6,69 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "722441",
+      "name": "错误",
+      "font_class": "errorHandling",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "866488",
+      "name": "表单",
+      "font_class": "formRelated",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "1766509",
+      "name": "符号-选项卡",
+      "font_class": "tabs",
+      "unicode": "e69f",
+      "unicode_decimal": 59039
+    },
+    {
+      "icon_id": "5650844",
+      "name": "表格",
+      "font_class": "basicForm",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "6248027",
+      "name": "图标8",
+      "font_class": "icon",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "6857178",
+      "name": "拖拽",
+      "font_class": "dragAndDrop",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "7350866",
+      "name": "地球，国际化，语言切换",
+      "font_class": "i18n",
+      "unicode": "e676",
+      "unicode_decimal": 58998
+    },
+    {
+      "icon_id": "12820191",
+      "name": "系统首页",
+      "font_class": "dashboard",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "15218119",
+      "name": "barschart",
+      "font_class": "charts",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
       "icon_id": "5308959",
       "name": "数据统计",
       "font_class": "reports",
