@@ -1,5 +1,5 @@
 <template>
-  <div class="m-view-masterMenu m-window">
+  <div class="m-StudyJavaScriptVue m-window">
     <div class="m-module">
       <el-collapse v-model="activeName" accordion>
         <el-collapse-item

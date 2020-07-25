@@ -1,5 +1,5 @@
 <template>
-  <div class="m-window">
+  <div class="m-categories m-window">
    <div>
      <el-row>
        <el-col>

@@ -1,12 +1,12 @@
 <template>
-  <div class="m-window">
+  <div class="m-parameters m-window">
     <!-- 卡片视图区域 -->
     <div>
       <!-- 警告区域 -->
       <el-alert show-icon title="注意：只允许为第三级分类设置相关参数！" type="warning" :closable="false"></el-alert>
 
       <!-- 选择商品分类区域 -->
-      <el-row class="cat_opt">
+      <el-row class="cat-opt">
         <el-col>
           <span>选择商品分类：</span>
           <!-- 选择商品分类的级联选择框 -->
@@ -124,7 +124,7 @@
               </template>
             </el-table-column>
             <!-- 索引列 -->
-            <el-table-column type="index"></el-table-column>
+            <el-table-column label="#" type="index"></el-table-column>
             <el-table-column label="属性名称" prop="attr_name"></el-table-column>
             <el-table-column label="操作">
               <template slot-scope="scope">
@@ -447,15 +447,5 @@ export default {
 </script>
 
 <style lang="less">
-.cat_opt {
-  margin: 15px 0;
-}
 
-.el-tag {
-  margin: 10px;
-}
-
-.input-new-tag {
-  width: 120px;
-}
 </style>

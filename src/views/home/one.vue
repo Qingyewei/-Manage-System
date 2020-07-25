@@ -1,17 +1,17 @@
 <template>
-  <div class="m-window">
-    <el-header>
-      <!-- <div class="m-hearImg">
-        <img src="@assets/logo.png" alt />
-      </div>-->
-      <!-- <el-button type="primary" @click="loginout">退出</el-button> -->
-      <!-- 退出 -->
-      <div class="top-logout" title="退出系统" @click="loginout">
-        <svg class="icon top-icon">
-          <use xlink:href="#iconloginout" />
-        </svg>
+  <div class="m-home">
+    <!-- 头部 -->
+    <div class="m-top">
+      <!-- 用户头像 -->
+      <div class="m-topRight">
+        <!-- 退出 -->
+        <div class="top-logout" title="退出系统" @click="loginout">
+          <svg class="icon top-icon">
+            <use xlink:href="#iconloginout" />
+          </svg>
+        </div>
       </div>
-    </el-header>
+    </div>
 
     <!-- <div class="m-left">
       <ul>
@@ -313,25 +313,6 @@ export default {
 </script>
 
 <style lang='less'>
-.m-home {
-  .m-hearImg {
-    display: block;
-    width: 60px;
-    height: 60px;
-  }
-  .reset-btn {
-    position: absolute;
-    right: 0px;
-    z-index: 1;
-    line-height: 40px;
-    width: 90px;
-    text-align: center;
-    .el-button {
-      padding: 0 10px;
-      height: 32px;
-      line-height: 31px;
-    }
-  }
-}
+
 </style>
 

@@ -537,7 +537,14 @@ html {
 }
 
 .m-users,
-.m-roleList,.m-permissionsList,.m-producList{
+.m-roleList,
+.m-permissionsList,
+.m-producList,
+.m-parameters,
+.m-categories,
+.m-orders,
+.m-reports,
+.m-StudyJavaScriptVue{
   position: absolute;
   top: 0;
   left: 0;
@@ -548,34 +555,61 @@ html {
 .el-table {
   margin-top: 16px;
 }
+
 .el-row {
-    line-height: 40px;
-  }
+  line-height: 40px;
+}
 
-  .el-pagination {
-    padding: 16px;
-  }
+.el-pagination {
+  padding: 16px;
+}
 
-.m-permissionsList{
+.m-permissionsList {
   overflow: auto;
 }
 
-.m-producList{
-  
-  .m-table{
+.m-producList,.m-orders {
+
+  .m-table {
     position: absolute;
     left: 16px;
     right: 16px;
     top: 80px;
     bottom: 50px;
     overflow: auto;
-    .el-table{
+
+    .el-table {
       margin-top: 0px;
     }
   }
-  .m-pagination{
+
+  .m-pagination {
     position: absolute;
     bottom: 10px;
   }
 }
 
+.m-parameters{
+  .cat-opt,.el-tabs{
+    margin-top: 16px;
+
+    .el-tabs__item{
+      padding: 0 16px !important;
+    }
+  }
+  .el-tabs__content{
+    top: 178px;
+  }
+}
+.m-categories{
+  .treetable{
+  margin-top: 16px;
+}
+}
+
+.m-orders{
+  .m-table {
+    top: 72px;
+  }
+
+}

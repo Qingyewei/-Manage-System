@@ -1,5 +1,5 @@
 <template>
-  <div class="m-window">
+  <div class="m-reports m-window">
       <div>
           <div id="main" style="width:750px;height:400px"></div>
       </div>
