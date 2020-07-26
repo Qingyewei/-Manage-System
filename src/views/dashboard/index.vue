@@ -280,6 +280,7 @@ export default {
   }
   .el-row {
     margin-bottom: 20px;
+    line-height: 25px;
   }
 
   .grid-content {

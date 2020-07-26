@@ -1,8 +1,21 @@
 <template>
-  <div class="m-reports m-window">
-      <div>
-          <div id="main" style="width:750px;height:400px"></div>
-      </div>
+  <div class="m-internationalization m-window">
+      <div class="container">
+            <span>{{$t('i18n.tips')}}</span>
+            <el-button type="primary" @click="$i18n.locale = $i18n.locale === 'zh'?'en':'zh';">{{$t('i18n.btn')}}</el-button>
+            <div class="list">
+            <h2>{{$t('i18n.title1')}}</h2>
+                <p>{{$t('i18n.p1')}}</p>
+                <p>{{$t('i18n.p2')}}</p>
+                <p>{{$t('i18n.p3')}}</p>
+            </div>
+            <h2>{{$t('i18n.title2')}}</h2>
+            <div>
+                <i18n path="i18n.info" tag="p">
+                    <a place="action" href="https://element.eleme.cn/2.0/#/zh-CN/component/i18n">{{ $t('i18n.value') }}</a>
+                </i18n>
+            </div>
+        </div>
   </div>
 </template>
 
@@ -21,60 +34,22 @@ export default {
   },
   data() {
     return {
-      // 需要合并的数据
-      options: {
-        title: {
-          text: '用户来源'
-        },
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'cross',
-            label: {
-              backgroundColor: '#E9EEF3'
-            }
-          }
-        },
-        grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '3%',
-          containLabel: true
-        },
-        xAxis: [
-          {
-            boundaryGap: false
-          }
-        ],
-        yAxis: [
-          {
-            type: 'value'
-          }
-        ]
-      }
+
     }
   },
-  created() {},
-  // 此时，页面上的元素，已经被渲染完毕了！
-  async mounted() {
-    // 3. 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('main'))
-
-    const { data: res } = await this.$http.get('reports/type/1')
-    if (res.meta.status !== 200) {
-      return this.$message.error('获取折线图数据失败！')
-    }
-    console.log(res.data)
-    // 4. 准备数据和配置项
-    const result = _.merge(res.data, this.options)
-
-    // 5. 展示数据
-    myChart.setOption(result)
-  },
-  methods: {}
 }
 </script>
 
 <style lang='less'>
-
+.m-internationalization{
+  .list{
+    padding: 30px 0;
+}
+.list p{
+    margin-bottom: 20px;
+}
+a{
+    color: #409eff;
+}
+}
 </style>

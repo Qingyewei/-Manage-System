@@ -34,19 +34,28 @@ import './assets/css/cover.less'
 import '../node_modules/ag-grid-community/dist/styles/ag-grid.css'
 import '../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css'
 
-//拖拽
+//注册拖拽
 import '@/public/directives';
 
+//导入iconfont包
 import '@/assets/fonts/iconfont.js'
 
+//国际化功能
+import VueI18n from 'vue-i18n'
+import { messages } from './public/i18n';
+Vue.use(VueI18n);
+const i18n = new VueI18n({
+  locale: 'zh',
+  messages
+});
 
-
-
+//导入ElementUI
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
 Vue.config.productionTip = false
+
 // 导入 NProgress 包对应的JS和CSS 进度条
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
@@ -104,6 +113,7 @@ Vue.filter('dateFormat', function(originVal) {
 
 new Vue({
   router,
+  i18n,
   store,
   render: h => h(App)
 }).$mount('#app')
