@@ -190,12 +190,12 @@ const routes = [{
         copmonent: () => import('@/views/errorHandling/permission.vue'),
         meta: { title: '404' }
       },
-      // {
-      //   path: '/403',
-      //   name: '403',
-      //   copmonent: () => import('@/views/errorHandling/403.vue'),
-      //   meta: { title: '403' }
-      // },
+      {
+        path: '/error',
+        name: 'error',
+        copmonent: () => import('@/views/errorHandling/error.vue'),
+        meta: { title: 'error' }
+      },
     ]
   },
 
@@ -217,7 +217,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   document.title = `${to.meta.title} | manage-system`;
-  const role = localStorage.getItem('username');
+  const role = sessionStorage.getItem('username');
   if (to.path == '/login') {
     if (!window.token) {
       next()
@@ -225,6 +225,9 @@ router.beforeEach((to, from, next) => {
       window.token = ''
       next()
     }
+  }
+  else if(to.meta.permission){
+    role === 'admin'?next():next('./error')
   }
    else {
     if (!window.token) {
