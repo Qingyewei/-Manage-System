@@ -57,7 +57,7 @@ export default {
             //   window.sessionStorage.setItem('token', res.data.token)
             window.token = res.data.token
             this.$auth.login()
-              this.$router.push('/home')
+              this.$router.push('/resume')
           })
       }
   }

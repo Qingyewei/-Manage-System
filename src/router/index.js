@@ -23,6 +23,11 @@ const routes = [{
     meta:{title:'登录'}
   },
   {
+    path: '/resume',
+    component: () => import('@/views/resume/index'),
+    meta:{title:'个人简历'}
+  },
+  {
     path: '/home',
     name: 'home',
     component: home,

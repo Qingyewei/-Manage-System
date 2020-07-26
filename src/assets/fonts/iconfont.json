@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "2019078",
+      "name": "简历",
+      "font_class": "resume",
+      "unicode": "e7b5",
+      "unicode_decimal": 59317
+    },
+    {
+      "icon_id": "10793054",
+      "name": "github",
+      "font_class": "github",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "14929709",
+      "name": "下载 (5)",
+      "font_class": "download",
+      "unicode": "e67b",
+      "unicode_decimal": 59003
+    },
+    {
       "icon_id": "722441",
       "name": "错误",
       "font_class": "errorHandling",
