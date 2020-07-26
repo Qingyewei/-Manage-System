@@ -16,7 +16,7 @@ export const str =  {
         top: 20px;
         left: 0;
         width: 30%;
-        height: 100%;
+        bottom: 0;
         text-align: center;
         color: #313131;
         line-height: 1.8;
@@ -28,7 +28,7 @@ export const str =  {
         top: 20px;
         left: 30%;
         width: 69%;
-        height: 100%;
+        bottom: 0;
         box-sizing: border-box;
       }
       .section-left i {
