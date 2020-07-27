@@ -45,7 +45,7 @@
             </el-form-item>
             <el-form-item label="商品分类" prop="goods_cat">
               <el-cascader
-                expand-trigger="hover"
+                props.expandTrigger="hover"
                 :options="catelist"
                 :props="cateProps"
                 v-model="addForm.goods_cat"

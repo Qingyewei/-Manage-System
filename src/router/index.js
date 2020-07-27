@@ -47,13 +47,13 @@ const routes = [{
       },
       {
         path: '/roles',
-        name: 'roleList',
+        name: 'roles',
         component: () => import('@/views/rights/roleList'),
         meta:{title:'角色列表'}
       },
       {
         path: '/rights',
-        name: 'permissionsList',
+        name: 'rights',
         component: () => import('@/views/rights/permissionsList'),
         meta:{title:'权限列表'}
       },

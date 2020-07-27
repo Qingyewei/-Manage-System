@@ -49,7 +49,6 @@
         <div v-for="(item,index) in menulist" :key="index">
           <el-submenu :index="item.id + ''" v-if="item.children">
             <template slot="title">
-              <!-- 当没有icon时使用svg，没有的时候使用i -->
               <svg class="icon">
                 <use :href="'#icon'+ item.path" />
               </svg>
@@ -62,7 +61,6 @@
                 v-for="subItem in item.children"
                 :key="subItem.id"
                 @click="goMenu(subItem,item)"
-                :class="{'active':item.authName==titleName}"
               >
                 <template slot="title">
                   <span>{{subItem.authName}}</span>
@@ -71,7 +69,6 @@
             </el-menu-item-group>
           </el-submenu>
           <el-menu-item :index="index + ''" v-else @click="goMenu(item)">
-            <!-- 当没有icon时使用svg，没有的时候使用i -->
             <svg class="icon">
               <use :href="'#icon'+ item.path" />
             </svg>
@@ -170,13 +167,47 @@ export default {
       titleName: "首页",
     };
   },
+  watch: {
+    // 监听Tab标签变化
+    editableTabsValue (oldVal,newVal) {
+      this.editableTabs.forEach(item => {
+        if (
+          item.name == newVal &&
+          this.$router.currentRoute.name != item.content
+        ) {
+          // 路由变化
+          this.$router.push({ name: item.content });
+
+          // 左侧菜单栏变化
+          // for (let i = 0; i < this.menulist.length; i++) {
+          //   if (this.menulist[i].path == item.content) {
+          //     this.activeIndex = this.menulist[i].index;
+          //     break;
+          //   }
+          //   if (this.menulist[i].children) {
+          //     for (
+          //       let j = 0;
+          //       j < this.menulist[i].children.length;
+          //       j++
+          //     ) {
+          //       if (this.menulist[i].children[j].path == item.content) {
+          //         this.activeIndex = this.menulist[i].children[j].index;
+          //         break;
+          //       }
+          //     }
+          //   }
+          // }
+        }
+      });
+    },
+  },
 
   //清空标签右侧activeIndex获取index值，将侧边栏导航页清空，因为activeIndex的值为null，要在渲染前给activeIndex赋值
   // mounted() {
   //   console.log(window.location.href);
   //   let start = window.location.href.lastIndexOf("/");
-  //   // let path = window.location.href.slice(start + 1);
-  //   // this.activeIndex = path;
+  //   let path = window.location.href.slice(start + 1);
+  //   this.activeIndex = path;
 
   //   console.log(this.activeIndex);
   // },
@@ -252,7 +283,7 @@ export default {
     goMenu(data) {
       this.editableTabsValue = "1";
       this.$router.push("/" + data.path);
-      console.log("/" + data.path);
+      // console.log("/" + data.path);
       // this.titleName = data.authName;
       this.addTab(data);
     },

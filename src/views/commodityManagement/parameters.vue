@@ -11,7 +11,7 @@
           <span>选择商品分类：</span>
           <!-- 选择商品分类的级联选择框 -->
           <el-cascader
-            expand-trigger="hover"
+            props.expandTrigger="hover"
             :options="catelist"
             :props="cateProps"
             v-model="selectedCateKeys"
