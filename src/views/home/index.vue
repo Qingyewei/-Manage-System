@@ -47,7 +47,7 @@
         :default-openeds="isOpeneds"
       >
         <div v-for="(item,index) in menulist" :key="index">
-          <el-submenu :index="item.id + ''" v-if="item.children">
+          <el-submenu :index="item.path" v-if="item.children">
             <template slot="title">
               <svg class="icon">
                 <use :href="'#icon'+ item.path" />
@@ -57,7 +57,7 @@
             <!-- children2 -->
             <el-menu-item-group>
               <el-menu-item
-                :index="'/'+subItem.path"
+                :index="subItem.path"
                 v-for="subItem in item.children"
                 :key="subItem.id"
                 @click="goMenu(subItem,item)"
@@ -68,7 +68,7 @@
               </el-menu-item>
             </el-menu-item-group>
           </el-submenu>
-          <el-menu-item :index="index + ''" v-else @click="goMenu(item)">
+          <el-menu-item :index="item.path" v-else @click="goMenu(item)">
             <svg class="icon">
               <use :href="'#icon'+ item.path" />
             </svg>
@@ -119,7 +119,13 @@
       <div class="reset-btn">
         <el-button @click="resetTab">清空标签</el-button>
       </div>
-      <el-tabs v-model="editableTabsValue" @tab-remove="removeTab" @tab-add="addTab" type="card">
+      <el-tabs
+        v-model="editableTabsValue"
+        @tab-remove="removeTab"
+        @tab-add="addTab"
+        type="card"
+        @tab-click="clickTab"
+      >
         <el-tab-pane :label="titleName" name="1">
           <component :is="'mine'" :addTab="addTab" :removeTab="removeTab"></component>
         </el-tab-pane>
@@ -140,7 +146,7 @@
 
 <script>
 import components from "@/views/home/components";
-import {otherMenuList} from '@/public/otherMenuList'
+import { otherMenuList } from "@/public/otherMenuList";
 export default {
   components: components,
   name: "home",
@@ -169,36 +175,30 @@ export default {
   },
   watch: {
     // 监听Tab标签变化
-    editableTabsValue (oldVal,newVal) {
-      this.editableTabs.forEach(item => {
-        if (
-          item.name == newVal &&
-          this.$router.currentRoute.name != item.content
-        ) {
-          // 路由变化
-          this.$router.push({ name: item.content });
-
-          // 左侧菜单栏变化
-          // for (let i = 0; i < this.menulist.length; i++) {
-          //   if (this.menulist[i].path == item.content) {
-          //     this.activeIndex = this.menulist[i].index;
-          //     break;
-          //   }
-          //   if (this.menulist[i].children) {
-          //     for (
-          //       let j = 0;
-          //       j < this.menulist[i].children.length;
-          //       j++
-          //     ) {
-          //       if (this.menulist[i].children[j].path == item.content) {
-          //         this.activeIndex = this.menulist[i].children[j].index;
-          //         break;
-          //       }
-          //     }
-          //   }
-          // }
+    editableTabsValue(newVal) {
+      let path;
+      for (const option of this.editableTabs) {
+        if (option.name == newVal) {
+          path = option.content;
+          break;
         }
-      });
+      }
+      for (const option of this.menulist) {
+        if (option.path == path) {
+          this.activeIndex = option.path;
+          this.$router.push("/" + path);
+          break;
+        }
+        if (option.children) {
+          for (const children of option.children) {
+            if (children.path == path) {
+              this.activeIndex = children.path;
+              this.$router.push("/" + path);
+              break;
+            }
+          }
+        }
+      }
     },
   },
 
@@ -212,8 +212,9 @@ export default {
   //   console.log(this.activeIndex);
   // },
   created() {
+    console.log(this.menulist);
     this.getMenuList();
-    this.otherMenuList= otherMenuList.otherMenuList
+    this.otherMenuList = otherMenuList.otherMenuList;
     // this.$router.push("/home");
     // this.activePath = window.sessionStorage.getItem("activePath");
     if (
@@ -224,6 +225,7 @@ export default {
     }
   },
   methods: {
+    clickTab(val) {},
     removeTab(targetName) {
       let tabs = this.editableTabs;
       let activeName = this.editableTabsValue;

@@ -6,6 +6,11 @@
 
 <script>
 export default {
+  // watch: {
+  //   $route(newVal){
+  //     console.log(newVal)
+  //   },
+  // },
   created(){
     //window监听刷新事件
      window.onbeforeunload = (e) => {
