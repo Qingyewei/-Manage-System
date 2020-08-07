@@ -99,6 +99,20 @@ export default {
               path: "search",
               children: null,
             },
+            {
+              authName: "tab选型卡",
+              id: 7,
+              order: 7,
+              path: "tab",
+              children: null,
+            },
+            {
+              authName: "基础表格",
+              id: 8,
+              order: 8,
+              path: "basedTable",
+              children: null,
+            },
           ],
         },
         {

@@ -73,11 +73,6 @@ import './plugins/timeline-item/timeline-item.css';
 Vue.use(Timeline)
 Vue.use(TimelineItem)
 
-
-import Schart from 'vue-schart'
-Vue.use(Schart)
-
-
 import auth from '@/public/auth'
 Vue.use(auth)
 

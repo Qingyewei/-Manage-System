@@ -2,6 +2,16 @@
   <div class="m-home">
     <!-- 头部 -->
     <div class="m-top">
+      <div class="m-dateTime">
+        <div class="m-day" v-text="myDate"></div>
+        <div class="m-dates">
+          <div class="m-date" v-text="myYear + '/' + myMonth"></div>
+          <div class="m-weekTime">
+            <span v-text="myDay"></span>
+            <span v-text="myHours + ':' + myMinutes"></span>
+          </div>
+        </div>
+      </div>
       <!-- 用户头像 -->
       <div class="m-topRight">
         <!-- 退出 -->
@@ -119,13 +129,7 @@
       <div class="reset-btn">
         <el-button @click="resetTab">清空标签</el-button>
       </div>
-      <el-tabs
-        v-model="editableTabsValue"
-        @tab-remove="removeTab"
-        @tab-add="addTab"
-        type="card"
-        @tab-click="clickTab"
-      >
+      <el-tabs v-model="editableTabsValue" @tab-remove="removeTab" @tab-add="addTab" type="card">
         <el-tab-pane :label="titleName" name="1">
           <component :is="'mine'" :addTab="addTab" :removeTab="removeTab"></component>
         </el-tab-pane>
@@ -152,6 +156,14 @@ export default {
   name: "home",
   data() {
     return {
+      myTime: new Date(),
+      myYear: "",
+      myMonth: "",
+      myDate: "",
+      myDay: "",
+      myHours: "",
+      myMinutes: "",
+      mySeconds: "",
       // 左边菜单栏当前激活列表
       activeIndex: "0",
       menulist: [],
@@ -212,7 +224,13 @@ export default {
   //   console.log(this.activeIndex);
   // },
   created() {
-    console.log(this.menulist);
+    this.timeUp();
+    this.timer = setInterval(() => {
+      this.timeUp();
+      if (this.myHours == 6 && this.myMinutes == 59 && this.mySeconds == 59) {
+        window.location.reload();
+      }
+    }, 1000);
     this.getMenuList();
     this.otherMenuList = otherMenuList.otherMenuList;
     // this.$router.push("/home");
@@ -225,7 +243,42 @@ export default {
     }
   },
   methods: {
-    clickTab(val) {},
+    //右上角时间定时器
+    timeUp() {
+      this.myTime = new Date();
+      var weekday = [
+        "星期日",
+        "星期一",
+        "星期二",
+        "星期三",
+        "星期四",
+        "星期五",
+        "星期六",
+      ];
+      this.myYear = this.myTime.getFullYear();
+      this.myMonth = this.myTime.getMonth() + 1;
+      if (this.myMonth < 10) {
+        this.myMonth = "0" + this.myMonth;
+      }
+      this.myDate = this.myTime.getDate();
+      if (this.myDate < 10) {
+        this.myDate = "0" + this.myDate;
+      }
+      this.myDay = this.myTime.getDay();
+      this.myDay = weekday[this.myDay];
+      this.myHours = this.myTime.getHours();
+      if (this.myHours < 10) {
+        this.myHours = "0" + this.myHours;
+      }
+      this.myMinutes = this.myTime.getMinutes();
+      if (this.myMinutes < 10) {
+        this.myMinutes = "0" + this.myMinutes;
+      }
+      this.mySeconds = this.myTime.getSeconds();
+      if (this.mySeconds < 10) {
+        this.mySeconds = "0" + this.mySeconds;
+      }
+    },
     removeTab(targetName) {
       let tabs = this.editableTabs;
       let activeName = this.editableTabsValue;

@@ -107,24 +107,6 @@ const routes = [{
         // }, ]
       },
       {
-        path: '/dashboard',
-        name: 'dashboard',
-        copmonent: () => import('@/views/dashboard'),
-        meta: { title: '系统首页' }
-      },
-      {
-        path: '/basedTable',
-        name: 'basedTable',
-        copmonent: () => import('@/views/basedTable'),
-        meta: { title: '基础表格' }
-      },
-      {
-        path: '/tabs',
-        name: 'tabs',
-        copmonent: () => import('@/views/tabs'),
-        meta: { title: 'tab选项卡' }
-      },
-      {
         path: '/basicForm',
         name: 'basicForm',
         copmonent: () => import('@/views/formRelated/basicForm'),
@@ -147,18 +129,6 @@ const routes = [{
         name: 'upload',
         copmonent: () => import('@/views/formRelated/upload'),
         meta: { title: '文件上传' }
-      },
-      {
-        path: '/customIcon',
-        name: 'customIcon',
-        copmonent: () => import('@/views/customIcon'),
-        meta: { title: '自定义图标' }
-      },
-      {
-        path: '/schartCharts',
-        name: 'schartCharts',
-        copmonent: () => import('@/views/schartCharts'),
-        meta: { title: 'schart图表' }
       },
       {
         path: '/drag',

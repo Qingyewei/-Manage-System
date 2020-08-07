@@ -6,27 +6,9 @@ otherMenuList: [{
             path: "StudyJavaScriptVue",
         },
         {
-            authName: "个人信息",
-            id: 2,
-            order: 2,
-            path: "dashboard",
-        },
-        {
-            authName: "基础表格",
-            id: 3,
-            order: 3,
-            path: "basedTable",
-        },
-        {
-            authName: "tab选项卡",
+            authName: "表单相关",
             id: 4,
             order: 4,
-            path: "tabs",
-        },
-        {
-            authName: "表单相关",
-            id: 5,
-            order: 5,
             path: "formRelated",
             children: [{
                     authName: "基本表单",
@@ -54,18 +36,6 @@ otherMenuList: [{
                     path: "upload",
                 },
             ],
-        },
-        {
-            authName: "自定义图标",
-            id: 6,
-            order: 6,
-            path: "customIcon",
-        },
-        {
-            authName: "schart图表",
-            id: 7,
-            order: 7,
-            path: "schartCharts",
         },
         {
             authName: "拖拽组件",

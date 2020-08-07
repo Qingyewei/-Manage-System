@@ -6,12 +6,7 @@ import goods from '../commodityManagement/components'
 import orders from '../orderManagement/components'
 import reports from '../dataStatistics/components'
 import StudyJavaScriptVue from '../studyJavaScriptVue/components'
-import dashboard from '../dashboard/components'
-import basicForm  from '../basedTable/components'
-import tabs  from '../tabs/components'
 import formRelated from '../formRelated/components'
-import customIcon from '../customIcon/components'
-import schartCharts from '../schartCharts/components'
 import dragAndDrop from '../dragAndDrop/components'
 import internationalization from '../internationalization/components'
 import errorHandling from '../errorHandling/components'
@@ -29,12 +24,7 @@ components = Object.assign(
     orders,
     reports,
     StudyJavaScriptVue,
-    dashboard,
-    basicForm,
-    tabs,
     formRelated,
-    customIcon,
-    schartCharts,
     dragAndDrop,
     internationalization,
     errorHandling

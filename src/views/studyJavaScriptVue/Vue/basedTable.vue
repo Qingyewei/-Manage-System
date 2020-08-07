@@ -95,7 +95,7 @@
 </template>
 
 <script>
-import table from "../../../public/table.json";
+import table from "../../../../public/table.json";
 export default {
   props: {
     addTab: {
